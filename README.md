@@ -43,3 +43,10 @@ void Main()
 **Purpose**: tests to demonstrate the expected behavior of value and reference types being passed as parameters
 
 **Note**: this also covers the structs tests, as another common mistake is to think of them as reference types, instead of value type
+
+
+## Checked vs. Unchecked
+
+[MSDN Documentation](https://msdn.microsoft.com/en-us/library/74b4xzyw(v=vs.71).aspx)
+
+**Purpose**: tests to demonstrate the difference between checked and unchecked code
