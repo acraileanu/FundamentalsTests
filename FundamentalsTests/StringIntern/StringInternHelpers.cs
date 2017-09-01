@@ -2,7 +2,7 @@
 
 namespace FundamentalsTests.StringIntern
 {
-	internal class StringInternHelpers
+	internal static class StringInternHelpers
 	{
 		internal static string GetLiteral()
 		{
