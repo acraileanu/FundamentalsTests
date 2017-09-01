@@ -56,6 +56,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="PassingParameters\ITypeWithIntProperty.cs" />
+    <Compile Include="PassingParameters\StructWithIntProperty.cs" />
+    <Compile Include="PassingParameters\ObjectWithIntProperty.cs" />
+    <Compile Include="PassingParameters\PassingReferenceTypesAsParametersTests.cs" />
+    <Compile Include="PassingParameters\PassingValueTypesAsParametersTests.cs" />
+    <Compile Include="PassingParameters\PassingParametersHelpers.cs" />
+    <Compile Include="PassingParameters\StructsAreValueTypeTests.cs" />
     <Compile Include="StringIntern\StringInternHelpers.cs" />
     <Compile Include="StringIntern\StringInternTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
