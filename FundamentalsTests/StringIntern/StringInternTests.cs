@@ -56,7 +56,7 @@ namespace FundamentalsTests.StringIntern
 		}
 
 		[Test]
-		public void MixLiteralInternalStringsWithSameValuesAreSameAndEqual()
+		public void MixLiteralNonLiteralInternalStringsWithSameValuesAreSameAndEqual()
 		{
 			var first = StringInternHelpers.GetLiteral();
 			var second = string.Intern(StringInternHelpers.GetNonLiteral());
