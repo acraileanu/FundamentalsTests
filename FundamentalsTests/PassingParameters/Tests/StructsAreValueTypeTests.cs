@@ -1,7 +1,8 @@
 ﻿using System;
+using FundamentalsTests.PassingParameters.Helpers;
 using NUnit.Framework;
 
-namespace FundamentalsTests.PassingParameters
+namespace FundamentalsTests.PassingParameters.Tests
 {
 	[TestFixture]
 	public class StructsAreValueTypeTests

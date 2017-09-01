@@ -1,4 +1,4 @@
-﻿namespace FundamentalsTests.PassingParameters
+﻿namespace FundamentalsTests.PassingParameters.Helpers
 {
 	internal class ObjectWithIntProperty : ITypeWithIntProperty
 	{

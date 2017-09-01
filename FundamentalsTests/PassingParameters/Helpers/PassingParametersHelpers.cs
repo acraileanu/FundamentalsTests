@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FundamentalsTests.PassingParameters
+namespace FundamentalsTests.PassingParameters.Helpers
 {
 	internal static class PassingParametersHelpers
 	{

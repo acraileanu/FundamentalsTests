@@ -11,6 +11,7 @@ namespace FundamentalsTests.StringsAreReferenceTypes
 				throw new ArgumentNullException(nameof(input));
 			}
 
+			// ReSharper disable once RedundantAssignment
 			input = GetUniqueString();
 		}
 
