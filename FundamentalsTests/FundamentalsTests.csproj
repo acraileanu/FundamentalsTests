@@ -66,8 +66,8 @@
     <Compile Include="StringIntern\StringInternHelpers.cs" />
     <Compile Include="StringIntern\StringInternTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringsAreReferenceTypes\StringsAreReferenceTypesHelpers.cs" />
-    <Compile Include="StringsAreReferenceTypes\StringsAreReferenceTypesTests.cs" />
+    <Compile Include="StringsAreReferenceType\StringsAreReferenceTypeHelpers.cs" />
+    <Compile Include="StringsAreReferenceType\StringsAreReferenceTypeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

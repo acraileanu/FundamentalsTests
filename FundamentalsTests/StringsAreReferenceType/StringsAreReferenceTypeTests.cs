@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 
-namespace FundamentalsTests.StringsAreReferenceTypes
+namespace FundamentalsTests.StringsAreReferenceType
 {
 	[TestFixture]
-	public class StringsAreReferenceTypesTests
+	public class StringsAreReferenceTypeTests
 	{
 		[Test]
 		public void StringTypeIsAClass()
@@ -20,22 +20,22 @@ namespace FundamentalsTests.StringsAreReferenceTypes
 		[Test]
 		public void StringIsImmutable()
 		{
-			var originalValue = StringsAreReferenceTypesHelpers.GetUniqueString();
+			var originalValue = StringsAreReferenceTypeHelpers.GetUniqueString();
 			// ReSharper disable once RedundantAssignment
 			var input = originalValue;
 
-			input = StringsAreReferenceTypesHelpers.GetUniqueString();
+			input = StringsAreReferenceTypeHelpers.GetUniqueString();
 			
 			Assert.AreNotEqual(input, originalValue);
 		}
 
 		[Test]
-		public void StringIsStillImmutable()
+		public void StringPassedAsParameterIsImmutable()
 		{
-			var originalValue = StringsAreReferenceTypesHelpers.GetUniqueString();
+			var originalValue = StringsAreReferenceTypeHelpers.GetUniqueString();
 			var input = originalValue;
 
-			StringsAreReferenceTypesHelpers.ChangeString(input);
+			StringsAreReferenceTypeHelpers.ChangeString(input);
 			
 			Assert.AreEqual(input, originalValue);
 		}

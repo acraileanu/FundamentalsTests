@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace FundamentalsTests.StringsAreReferenceTypes
+namespace FundamentalsTests.StringsAreReferenceType
 {
-	internal static class StringsAreReferenceTypesHelpers
+	internal static class StringsAreReferenceTypeHelpers
 	{
 		internal static void ChangeString(string input)
 		{
