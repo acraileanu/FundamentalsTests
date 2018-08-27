@@ -2,16 +2,16 @@
 
 namespace FundamentalsTests.StringIntern
 {
-	internal static class StringInternHelpers
-	{
-		internal static string GetLiteral()
-		{
-			return "x";
-		}
+  internal static class StringInternHelpers
+  {
+    internal static string GetLiteral()
+    {
+      return "x";
+    }
 
-		internal static string GetNonLiteral()
-		{
-			return new StringBuilder("x").ToString();
-		}
-	}
+    internal static string GetNonLiteral()
+    {
+      return new StringBuilder("x").ToString();
+    }
+  }
 }

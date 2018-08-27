@@ -1,7 +1,7 @@
 ﻿namespace FundamentalsTests.PassingParameters.Helpers
 {
-	internal interface ITypeWithIntProperty
-	{
-		int Property { get; set;  }
-	}
+  internal interface ITypeWithIntProperty
+  {
+    int Property { get; set; }
+  }
 }
