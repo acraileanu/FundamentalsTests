@@ -2,14 +2,37 @@ namespace FundamentalsTests.LinkedLists.Helpers
 {
   internal class Node<T>
   {
-    internal T Value { get; set; }
+    private T data;
+    private Node<T> next;
 
-    internal Node<T> Next { get; set; }
-
-    internal Node(T value, Node<T> next = null)
+    internal Node(T data, Node<T> next = null)
     {
-      Next = next;
-      Value = value;
+      this.data = data;
+      this.next = next;
+    }
+
+    internal T Value
+    {
+      get
+      {
+        return data;
+      }
+      set
+      {
+        data = value;
+      }
+    }
+
+    internal Node<T> Next
+    {
+      get
+      {
+        return next;
+      }
+      set
+      {
+        next = value;
+      }
     }
   }
 }

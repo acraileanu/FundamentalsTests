@@ -7,9 +7,8 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
 {
   internal class Stack<T>
   {
-    private Node<T> top { get; set; }
-
-    internal int Count { get; set; }
+    private Node<T> top;
+    private int count;
 
     internal Stack(){
       Clear();
@@ -25,7 +24,7 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
     internal void Clear()
     {
       top = null;
-      Count = 0;
+      count = 0;
     }
 
     internal T Peek()
@@ -40,14 +39,14 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
     {
       var value = Peek();
       top = top.Next;
-      Count--;
+      count--;
       return value;
     }
 
     internal void Push(T item)
     {
       top = new Node<T>(item, top);
-      Count++;
+      count++;
     }
 
     internal bool Contains(T item)
@@ -73,7 +72,19 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
       if (output.Length > 2){
         output.Length -= 2;
       }
-      return $"<{output}> ({Count})";
+      return $"<{output}> ({count})";
+    }
+
+    internal int Count
+    {
+      get
+      {
+        return count;
+      }
+      set
+      {
+        count = value;
+      }
     }
   }
 }

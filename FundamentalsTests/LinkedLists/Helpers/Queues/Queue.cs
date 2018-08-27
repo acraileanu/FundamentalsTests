@@ -7,10 +7,9 @@ namespace FundamentalsTests.LinkedLists.Helpers.Queues
 {
   internal class Queue<T>
   {
-    private Node<T> head { get; set; }
-    private Node<T> tail { get; set; }
-
-    internal int Count { get; set; }
+    private Node<T> head;
+    private Node<T> tail;
+    private int count;
 
     internal Queue()
     {
@@ -28,7 +27,7 @@ namespace FundamentalsTests.LinkedLists.Helpers.Queues
     internal void Clear()
     {
       head = tail = null;
-      Count = 0;
+      count = 0;
     }
 
     internal T Peek()
@@ -48,7 +47,7 @@ namespace FundamentalsTests.LinkedLists.Helpers.Queues
       {
         tail = null;
       }
-      Count--;
+      count--;
       return value;
     }
 
@@ -64,7 +63,7 @@ namespace FundamentalsTests.LinkedLists.Helpers.Queues
         tail.Next = node;
         tail = node;
       }
-      Count++;
+      count++;
     }
 
     internal bool Contains(T item)
@@ -94,7 +93,19 @@ namespace FundamentalsTests.LinkedLists.Helpers.Queues
       {
         output.Length -= 2;
       }
-      return $"<{output}> ({Count})";
+      return $"<{output}> ({count})";
+    }
+
+    internal int Count
+    {
+      get
+      {
+        return count;
+      }
+      set
+      {
+        count = value;
+      }
     }
   }
 }

@@ -79,7 +79,6 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
       }
 
       for (var dequeueIndex = 0; dequeueIndex < values.Length; dequeueIndex++){
-      {
         Assert.AreEqual(values[dequeueIndex], queue.Dequeue());
       }
     }
