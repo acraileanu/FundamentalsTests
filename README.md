@@ -25,13 +25,13 @@ However, the reason for this is not that the string is a value type, but rather 
 ```
 void ChangeValue(string input)
 {
-	input = "new value";
+  input = "new value";
 }
 
 void Main()
 {
-	var s = "input value";
-	ChangeValue(s);
+  var s = "input value";
+  ChangeValue(s);
 }
 ```
 

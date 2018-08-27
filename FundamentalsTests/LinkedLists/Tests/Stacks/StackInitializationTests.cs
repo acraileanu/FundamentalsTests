@@ -3,17 +3,17 @@ using FundamentalsTests.LinkedLists.Helpers.Stacks;
 
 namespace FundamentalsTests.LinkedLists.Tests.Stacks
 {
-	[TestFixture]
-	public class StackInitializationTests
-	{
-		[Test]
-		public void NewStackHasNoElements()
-		{
-			var stack = new Stack<int>();
+  [TestFixture]
+  public class StackInitializationTests
+  {
+    [Test]
+    public void NewStackHasNoElements()
+    {
+      var stack = new Stack<int>();
 
-			Assert.AreEqual(0, stack.Count);
+      Assert.AreEqual(0, stack.Count);
       Assert.AreEqual("<> (0)", stack.ToString());
-		}
+    }
 
     [Test]
     public void StackWtihEmptyEnumerableHasNoElements()
@@ -41,5 +41,5 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       Assert.AreEqual(3, stack.Count);
       Assert.AreEqual("<3, 2, 1> (3)", stack.ToString());
     }
-	}
+  }
 }

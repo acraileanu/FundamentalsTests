@@ -3,9 +3,9 @@ using FundamentalsTests.LinkedLists.Helpers.Stacks;
 
 namespace FundamentalsTests.LinkedLists.Tests.Stacks
 {
-	[TestFixture]
-	public class StackOperationsTests
-	{
+  [TestFixture]
+  public class StackOperationsTests
+  {
     const int value = 123;
     private readonly int[] values = { 11, 32, 53, 74, 95 };
     private Stack<int> stack;
@@ -16,33 +16,33 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       stack = new Stack<int>(values);
     }
 
-		[Test]
-		public void ClearingStackRemovesAllElements()
-		{
+    [Test]
+    public void ClearingStackRemovesAllElements()
+    {
       stack.Clear();
 
       Assert.AreEqual(0, stack.Count);
     }
 
-		[Test]
-		public void PoppingFromEmptyStackRaisesException()
-		{
+    [Test]
+    public void PoppingFromEmptyStackRaisesException()
+    {
       stack.Clear();
 
       Assert.Throws<EmptyStackException>(() => stack.Pop());
     }
 
-		[Test]
-		public void PeekingIntoEmptyStackRaisesException()
-		{
+    [Test]
+    public void PeekingIntoEmptyStackRaisesException()
+    {
       stack.Clear();
 
       Assert.Throws<EmptyStackException>(() => stack.Peek());
     }
 
-		[Test]
-		public void PushingToStackIncreasesSize()
-		{
+    [Test]
+    public void PushingToStackIncreasesSize()
+    {
       var count = stack.Count;
 
       stack.Push(value);
@@ -50,9 +50,9 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       Assert.AreEqual(count + 1, stack.Count);
     }
 
-		[Test]
-		public void PoppingFromStackDecreasesSize()
-		{
+    [Test]
+    public void PoppingFromStackDecreasesSize()
+    {
       var count = stack.Count;
 
       stack.Pop();
@@ -60,9 +60,9 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       Assert.AreEqual(count - 1, stack.Count);
     }
 
-		[Test]
-		public void PoppingFromStackReturnsPeekedElement()
-		{
+    [Test]
+    public void PoppingFromStackReturnsPeekedElement()
+    {
       var peek = stack.Peek();
       var popped = stack.Pop();
 
@@ -70,9 +70,9 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       Assert.AreNotEqual(stack.Peek(), popped);
     }
 
-		[Test]
-		public void PoppingFromStackReturnsPushedValuesInReverseOrder()
-		{
+    [Test]
+    public void PoppingFromStackReturnsPushedValuesInReverseOrder()
+    {
       stack.Clear();
       for (var pushIndex = 0; pushIndex < values.Length; pushIndex++){
         stack.Push(values[pushIndex]);
@@ -85,18 +85,18 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       }
     }
 
-		[Test]
-		public void PushedElementIsFoundInStack()
-		{
+    [Test]
+    public void PushedElementIsFoundInStack()
+    {
       stack.Clear();
       stack.Push(value);
 
       Assert.IsTrue(stack.Contains(value));
     }
 
-		[Test]
-		public void NonPushedElementIsMissingFromStack()
-		{
+    [Test]
+    public void NonPushedElementIsMissingFromStack()
+    {
       stack.Clear();
       stack.Push(value);
 
@@ -121,9 +121,9 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       Assert.AreEqual(stack.Peek(), element);
     }
 
-		[Test]
-		public void SequenceOfOperationsProducesExpectedOutput()
-		{
+    [Test]
+    public void SequenceOfOperationsProducesExpectedOutput()
+    {
       // initial setup
       stack.Clear();
       confirmEmptyState();
@@ -150,5 +150,5 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       // final setup
       confirmEmptyState();
     }
-	}
+  }
 }
