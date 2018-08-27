@@ -2,6 +2,6 @@
 {
 	internal class ObjectWithIntProperty : ITypeWithIntProperty
 	{
-		public int Property { get; set;  }
+		public int Property { get; set; }
 	}
 }

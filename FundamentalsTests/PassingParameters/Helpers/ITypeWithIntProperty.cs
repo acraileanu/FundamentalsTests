@@ -2,6 +2,6 @@
 {
 	internal interface ITypeWithIntProperty
 	{
-		int Property { get; set;  }
+		int Property { get; set; }
 	}
 }
