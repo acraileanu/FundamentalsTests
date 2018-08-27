@@ -50,3 +50,10 @@ void Main()
 [MSDN Documentation](https://msdn.microsoft.com/en-us/library/74b4xzyw(v=vs.71).aspx)
 
 **Purpose**: tests to demonstrate the difference between checked and unchecked code
+
+
+## Queues implementation with Linked List
+
+[MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1)
+
+**Purpose**: tests to demonstrate the expected behavior of queue implemented with a linked list
