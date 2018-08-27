@@ -52,6 +52,13 @@ void Main()
 **Purpose**: tests to demonstrate the difference between checked and unchecked code
 
 
+## Stacks implementation with Linked List
+
+[MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.stack-1)
+
+**Purpose**: tests to demonstrate the expected behavior of stack implemented with a linked list
+
+
 ## Queues implementation with Linked List
 
 [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1)
