@@ -127,9 +127,10 @@ namespace FundamentalsTests.Trees.Tests
       var binarySearchTree = getPrepopulatedBinarySearchTree();
       var right = binarySearchTree.Root.Right.Left;
 
-      binarySearchTree.Remove(binarySearchTree.Root.Value);
+      var removed = binarySearchTree.Remove(binarySearchTree.Root.Value);
 
       Assert.AreEqual(right.Value, binarySearchTree.Root.Value);
+      Assert.IsTrue(removed);
     }
 
     [Test]
@@ -142,10 +143,11 @@ namespace FundamentalsTests.Trees.Tests
       expected.Remove(removeValue);
       var result = new List<int>();
 
-      binarySearchTree.Remove(removeValue);
+      var removed = binarySearchTree.Remove(removeValue);
       binarySearchTree.PreOrderTraversal(result.Add);
 
       Assert.AreEqual(expected, result);
+      Assert.IsTrue(removed);
     }
 
     [Test]
@@ -158,10 +160,11 @@ namespace FundamentalsTests.Trees.Tests
       expected.Remove(removeValue);
       var result = new List<int>();
 
-      binarySearchTree.Remove(removeValue);
+      var removed = binarySearchTree.Remove(removeValue);
       binarySearchTree.PreOrderTraversal(result.Add);
 
       Assert.AreEqual(expected, result);
+      Assert.IsTrue(removed);
     }
 
     [Test]
@@ -174,10 +177,11 @@ namespace FundamentalsTests.Trees.Tests
       expected.Remove(removeValue);
       var result = new List<int>();
 
-      binarySearchTree.Remove(removeValue);
+      var removed = binarySearchTree.Remove(removeValue);
       binarySearchTree.PreOrderTraversal(result.Add);
 
       Assert.AreEqual(expected, result);
+      Assert.IsTrue(removed);
     }
 
     [Test]
@@ -188,9 +192,10 @@ namespace FundamentalsTests.Trees.Tests
 
       Assert.IsTrue(binarySearchTree.Contains(removeValue));
 
-      binarySearchTree.Remove(removeValue);
+      var removed = binarySearchTree.Remove(removeValue);
 
       Assert.IsFalse(binarySearchTree.Contains(removeValue));
+      Assert.IsTrue(removed);
     }
 
     [Test]
@@ -245,10 +250,11 @@ namespace FundamentalsTests.Trees.Tests
 
       Assert.IsFalse(binarySearchTree.Contains(value));
 
-      binarySearchTree.Remove(value);
+      var removed = binarySearchTree.Remove(value);
 
       Assert.AreEqual(count, binarySearchTree.Count);
       Assert.IsFalse(binarySearchTree.Contains(value));
+      Assert.IsFalse(removed);
     }
   }
 }

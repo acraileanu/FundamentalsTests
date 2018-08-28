@@ -50,41 +50,53 @@ namespace FundamentalsTests.Trees.Helpers
         return false;
       }
 
-      int result;
-      BinaryTreeNode<T> current;
-
       var parent = getParentNode(Root, data);
+      var current = getNodeByParentAndData(parent, data);
+
+      if (current == null){
+        return false;
+      }
+
+      var replacementNode = getReplacementNode(current);
+
+      replaceNode(replacementNode, parent, current.Value);
+
+      Count--;
+
+      return true;
+    }
+
+    private void replaceNode(BinaryTreeNode<T> replacementNode, BinaryTreeNode<T> parent, T compareValue)
+    {
       if (parent == null)
       {
-        current = Root;
+        Root = replacementNode;
       }
       else
       {
-        result = parent.Value.CompareTo(data);
-        if ((result > 0) && (parent.Left != null))
+        var result = parent.Value.CompareTo(compareValue);
+        if (result > 0)
         {
-          current = parent.Left;
-        }
-        else if ((result < 0) && (parent.Right != null))
-        {
-          current = parent.Right;
+          parent.Left = replacementNode;
         }
         else
         {
-          return false;
+          parent.Right = replacementNode;
         }
       }
+    }
 
-      BinaryTreeNode<T> nodeToLink;
+    private BinaryTreeNode<T> getReplacementNode(BinaryTreeNode<T> current)
+    {
       if (current.Right == null)
       {
-        nodeToLink = current.Left;
+        return current.Left;
       }
       else if (current.Right.Left == null)
       {
         current.Right.Left = current.Left;
 
-        nodeToLink = current.Right;
+        return current.Right;
       }
       else
       {
@@ -100,29 +112,32 @@ namespace FundamentalsTests.Trees.Helpers
         leftmost.Left = current.Left;
         leftmost.Right = current.Right;
 
-        nodeToLink = leftmost;
+        return leftmost;
       }
+    }
 
+    private BinaryTreeNode<T> getNodeByParentAndData(BinaryTreeNode<T> parent, T data)
+    {
       if (parent == null)
       {
-        Root = nodeToLink;
+        return Root;
       }
       else
       {
-        result = parent.Value.CompareTo(current.Value);
-        if (result > 0)
+        var result = parent.Value.CompareTo(data);
+        if ((result > 0) && (parent.Left != null))
         {
-          parent.Left = nodeToLink;
+          return parent.Left;
+        }
+        else if ((result < 0) && (parent.Right != null))
+        {
+          return parent.Right;
         }
         else
         {
-          parent.Right = nodeToLink;
+          return null;
         }
       }
-
-      Count--;
-
-      return true;
     }
 
     private static BinaryTreeNode<T> getNodeByValue(BinaryTreeNode<T> current, T data){
