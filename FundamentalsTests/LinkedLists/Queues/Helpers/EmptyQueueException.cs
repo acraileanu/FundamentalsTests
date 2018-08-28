@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace FundamentalsTests.LinkedLists.Helpers.Queues
+namespace FundamentalsTests.LinkedLists.Queues.Helpers
 {
   [Serializable]
   public class EmptyQueueException : Exception
