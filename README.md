@@ -73,13 +73,6 @@ void Main()
 **Purpose**: tests to demonstrate the expected behavior of binary (search) trees
 
 
-## Trees
-
-[MSDN Documentation](https://msdn.microsoft.com/en-us/library/ms379570(v=vs.80).aspx)
-
-**Purpose**: tests to demonstrate the expected behavior of binary (search) trees
-
-
 ## Sorts
 
 [Documentation](https://en.wikipedia.org/wiki/Sorting_algorithm)
