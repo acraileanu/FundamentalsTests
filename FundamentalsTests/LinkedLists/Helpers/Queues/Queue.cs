@@ -7,10 +7,10 @@ namespace FundamentalsTests.LinkedLists.Helpers.Queues
 {
   internal class Queue<T>
   {
-    private Node<T> head { get; set; }
-    private Node<T> tail { get; set; }
+    private Node<T> head;
+    private Node<T> tail;
 
-    internal int Count { get; set; }
+    internal int Count { get; private set; }
 
     internal Queue()
     {

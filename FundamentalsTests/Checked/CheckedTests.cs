@@ -7,7 +7,7 @@ namespace FundamentalsTests.Checked
   public class CheckedTests
   {
     [Test]
-    public void UnheckedValidCodeDoesNotThrowError()
+    public void UncheckedValidCodeDoesNotThrowError()
     {
       var x = int.MaxValue - 1;
       var y = 1;
@@ -18,7 +18,7 @@ namespace FundamentalsTests.Checked
     }
 
     [Test]
-    public void UnheckedInvalidCodeDoesNotThrowError()
+    public void UncheckedInvalidCodeDoesNotThrowError()
     {
       var x = int.MaxValue;
       var y = int.MaxValue;

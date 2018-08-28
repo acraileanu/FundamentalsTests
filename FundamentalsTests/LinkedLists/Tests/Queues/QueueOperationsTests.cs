@@ -8,17 +8,31 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
   {
     const int value = 123;
     private readonly int[] values = { 11, 32, 53, 74, 95 };
-    private Queue<int> queue;
 
-    [SetUp]
-    public void Initialize()
+    private Queue<int> getPrepopulatedQueue()
     {
-      queue = new Queue<int>(values);
+      return new Queue<int>(values);
+    }
+
+    private Queue<int> getEmptyQueue()
+    {
+      return new Queue<int>();
+    }
+
+    [Test]
+    public void EmptyQueueHasNoElements()
+    {
+      var queue = getEmptyQueue();
+
+      Assert.AreEqual(0, queue.Count);
     }
 
     [Test]
     public void ClearingQueueRemovesAllElements()
     {
+      var queue = getPrepopulatedQueue();
+      Assert.AreNotEqual(0, queue.Count);
+
       queue.Clear();
 
       Assert.AreEqual(0, queue.Count);
@@ -27,7 +41,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     [Test]
     public void DequeueingFromEmptyQueueRaisesException()
     {
-      queue.Clear();
+      var queue = getEmptyQueue();
 
       Assert.Throws<EmptyQueueException>(() => queue.Dequeue());
     }
@@ -35,7 +49,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     [Test]
     public void PeekingIntoEmptyQueueRaisesException()
     {
-      queue.Clear();
+      var queue = getEmptyQueue();
 
       Assert.Throws<EmptyQueueException>(() => queue.Peek());
     }
@@ -43,6 +57,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     [Test]
     public void EnqueueingToQueueIncreasesSize()
     {
+      var queue = getPrepopulatedQueue();
       var count = queue.Count;
 
       queue.Enqueue(value);
@@ -53,6 +68,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     [Test]
     public void DequeueingFromQueueDecreasesSize()
     {
+      var queue = getPrepopulatedQueue();
       var count = queue.Count;
 
       queue.Dequeue();
@@ -63,6 +79,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     [Test]
     public void DequeueingFromQueueReturnsPeekedElement()
     {
+      var queue = getPrepopulatedQueue();
       var peek = queue.Peek();
       var dequeued = queue.Dequeue();
 
@@ -73,12 +90,13 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     [Test]
     public void DequeueingFromQueueReturnsEnqueuedValues()
     {
-      queue.Clear();
-      for (var enqueueIndex = 0; enqueueIndex < values.Length; enqueueIndex++){
+      var queue = getEmptyQueue();
+      for (var enqueueIndex = 0; enqueueIndex < values.Length; enqueueIndex++)
+      {
         queue.Enqueue(values[enqueueIndex]);
       }
 
-      for (var dequeueIndex = 0; dequeueIndex < values.Length; dequeueIndex++){
+      for (var dequeueIndex = 0; dequeueIndex < values.Length; dequeueIndex++)
       {
         Assert.AreEqual(values[dequeueIndex], queue.Dequeue());
       }
@@ -87,7 +105,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     [Test]
     public void EnqueuedElementIsFoundInQueue()
     {
-      queue.Clear();
+      var queue = getEmptyQueue();
       queue.Enqueue(value);
 
       Assert.IsTrue(queue.Contains(value));
@@ -96,13 +114,13 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     [Test]
     public void NonEnqueuedElementIsMissingFromQueue()
     {
-      queue.Clear();
+      var queue = getEmptyQueue();
       queue.Enqueue(value);
 
       Assert.IsFalse(queue.Contains(value + 1));
     }
 
-    private void confirmEmptyState(){
+    private void confirmEmptyState(Queue<int> queue){
       Assert.AreEqual(queue.Count, 0);
       Assert.IsFalse(queue.Contains(values[0]));
       Assert.IsFalse(queue.Contains(value));
@@ -110,7 +128,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
       Assert.Throws<EmptyQueueException>(() => queue.Dequeue());
     }
 
-    private void confirmHeadElement(int index, bool reversed = false)
+    private void confirmHeadElement(Queue<int> queue, int index, bool reversed = false)
     {
       var element = values[index];
 
@@ -124,21 +142,21 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     public void SequenceOfOperationsProducesExpectedOutput()
     {
       // initial setup
-      queue.Clear();
-      confirmEmptyState();
+      var queue = getEmptyQueue();
+      confirmEmptyState(queue);
 
       // enqueueing elements
       for (var index = 0; index < values.Length; index++)
       {
         queue.Enqueue(values[index]);
 
-        confirmHeadElement(index);
+        confirmHeadElement(queue, index);
       }
 
       // dequeueing elements
       for (var dequeueIndex = 0; dequeueIndex < values.Length; dequeueIndex++)
       {
-        confirmHeadElement(dequeueIndex, true);
+        confirmHeadElement(queue, dequeueIndex, true);
 
         var dequeued = queue.Dequeue();
 
@@ -147,7 +165,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
       }
 
       // final setup
-      confirmEmptyState();
+      confirmEmptyState(queue);
     }
   }
 }

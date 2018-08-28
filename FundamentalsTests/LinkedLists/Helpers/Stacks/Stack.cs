@@ -7,9 +7,9 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
 {
   internal class Stack<T>
   {
-    private Node<T> top { get; set; }
+    private Node<T> top;
 
-    internal int Count { get; set; }
+    internal int Count { get; private set; }
 
     internal Stack(){
       Clear();
@@ -30,7 +30,8 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
 
     internal T Peek()
     {
-      if (top == null){
+      if (top == null)
+      {
         throw new EmptyStackException();
       }
       return top.Value;
@@ -55,7 +56,8 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
       var node = top;
       while (node != null)
       {
-        if (node.Value.Equals(item)){
+        if (node.Value.Equals(item))
+        {
           return true;
         }
         node = node.Next;
@@ -66,11 +68,13 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
     public override string ToString(){
       var output = new StringBuilder();
       var node = top;
-      while (node != null){
+      while (node != null)
+      {
         output.AppendFormat("{0}, ", node.Value);
         node = node.Next;
       }
-      if (output.Length > 2){
+      if (output.Length > 2)
+      {
         output.Length -= 2;
       }
       return $"<{output}> ({Count})";
