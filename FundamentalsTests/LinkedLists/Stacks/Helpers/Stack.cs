@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FundamentalsTests.LinkedLists.Helpers;
 
-namespace FundamentalsTests.LinkedLists.Helpers.Stacks
+namespace FundamentalsTests.LinkedLists.Stacks.Helpers
 {
   internal class Stack<T>
   {

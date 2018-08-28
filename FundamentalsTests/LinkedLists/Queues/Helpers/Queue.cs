@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using FundamentalsTests.LinkedLists.Helpers;
 
-namespace FundamentalsTests.LinkedLists.Helpers.Queues
+namespace FundamentalsTests.LinkedLists.Queues.Helpers
 {
   internal class Queue<T>
   {

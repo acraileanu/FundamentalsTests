@@ -1,8 +1,8 @@
 using System;
 using NUnit.Framework;
-using FundamentalsTests.LinkedLists.Helpers.Queues;
+using FundamentalsTests.LinkedLists.Queues.Helpers;
 
-namespace FundamentalsTests.LinkedLists.Tests.Queues
+namespace FundamentalsTests.LinkedLists.Queues.Tests
 {
   [TestFixture]
   public class QueueInitializationTests

@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using FundamentalsTests.LinkedLists.Helpers.Stacks;
+using FundamentalsTests.LinkedLists.Stacks.Helpers;
 
-namespace FundamentalsTests.LinkedLists.Tests.Stacks
+namespace FundamentalsTests.LinkedLists.Stacks.Tests
 {
   [TestFixture]
   public class StackOperationsTests

@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace FundamentalsTests.LinkedLists.Helpers.Stacks
+namespace FundamentalsTests.LinkedLists.Stacks.Helpers
 {
   [Serializable]
   public class EmptyStackException : Exception
