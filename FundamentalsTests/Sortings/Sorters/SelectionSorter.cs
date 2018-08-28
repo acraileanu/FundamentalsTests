@@ -37,9 +37,9 @@ namespace FundamentalsTests.Sortings.Sorters
     }
 
     private static void swapItems(List<T> input, int first, int second){
-      var currentNumber = input[first];
+      var current = input[first];
       input[first] = input[second];
-      input[second] = currentNumber;
+      input[second] = current;
     }
   }
 }

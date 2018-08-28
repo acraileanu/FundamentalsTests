@@ -9,8 +9,11 @@ using System.Reflection;
 namespace FundamentalsTests.Sortings
 {
   [TestFixture(typeof(SelectionSorter<int>))]
+  [TestFixture(typeof(BubbleSorter<int>))]
   public class SortTests
   {
+    const int value = 123;
+    private static readonly List<int> values = new List<int> { 137, 53, 32, 179, 95, 11, 116, 158, 74 };
     private ISorter<int> sorter;
 
     public SortTests(Type sorterType)
@@ -18,14 +21,29 @@ namespace FundamentalsTests.Sortings
       sorter = (ISorter<int>)Activator.CreateInstance(sorterType);
     }
 
-    private static readonly List<int> values = new List<int> { 137, 53, 32, 179, 95, 11, 116, 158, 74 };
-
     [Test]
     public void SortingArrayReturnsSameNumberOfElements()
     {
       var result = sorter.Sort(values);
 
       Assert.AreEqual(values.Count, result.Count);
+    }
+
+    [Test]
+    public void CanSortEmptyList()
+    {
+      var result = sorter.Sort(new List<int>());
+
+      Assert.AreEqual(0, result.Count);
+    }
+
+    [Test]
+    public void CanSortOneElementList()
+    {
+      var result = sorter.Sort(new List<int>{ value });
+
+      Assert.AreEqual(1, result.Count);
+      Assert.AreEqual(value, result[0]);
     }
 
     [Test]
