@@ -86,7 +86,7 @@ namespace FundamentalsTests.Trees.Helpers
       }
     }
 
-    private BinaryTreeNode<T> getReplacementNode(BinaryTreeNode<T> current)
+    private static BinaryTreeNode<T> getReplacementNode(BinaryTreeNode<T> current)
     {
       if (current.Right == null)
       {

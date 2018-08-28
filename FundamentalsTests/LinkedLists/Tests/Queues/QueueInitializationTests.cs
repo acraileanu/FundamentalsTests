@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using FundamentalsTests.LinkedLists.Helpers.Queues;
 
@@ -16,9 +17,9 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
     }
 
     [Test]
-    public void QueueWtihEmptyEnumerableHasNoElements()
+    public void QueueWithEmptyEnumerableHasNoElements()
     {
-      var queue = new Queue<int>(new int[] {});
+      var queue = new Queue<int>(Array.Empty<int>());
 
       Assert.AreEqual(0, queue.Count);
       Assert.AreEqual("<> (0)", queue.ToString());

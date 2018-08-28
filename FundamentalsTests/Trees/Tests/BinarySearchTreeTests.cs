@@ -9,9 +9,9 @@ namespace FundamentalsTests.Trees.Tests
   public class BinarySearchTreeTests
   {
     const int value = 123;
-    private readonly int[] values = { 11, 32, 53, 74, 95, 116, 137, 158, 179 };
+    private static readonly int[] values = { 11, 32, 53, 74, 95, 116, 137, 158, 179 };
 
-    private BinarySearchTree<int> getPrepopulatedBinarySearchTree()
+    private static BinarySearchTree<int> getPrepopulatedBinarySearchTree()
     {
       //             95
       //       53          137
@@ -32,7 +32,7 @@ namespace FundamentalsTests.Trees.Tests
       return binarySearchTree;
     }
 
-    private BinarySearchTree<int> getEmptyBinarySearchTree()
+    private static BinarySearchTree<int> getEmptyBinarySearchTree()
     {
       return new BinarySearchTree<int>();
     }

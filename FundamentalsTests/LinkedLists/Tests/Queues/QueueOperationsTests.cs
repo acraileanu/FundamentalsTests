@@ -7,14 +7,14 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
   public class QueueOperationsTests
   {
     const int value = 123;
-    private readonly int[] values = { 11, 32, 53, 74, 95 };
+    private static readonly int[] values = { 11, 32, 53, 74, 95 };
 
-    private Queue<int> getPrepopulatedQueue()
+    private static Queue<int> getPrepopulatedQueue()
     {
       return new Queue<int>(values);
     }
 
-    private Queue<int> getEmptyQueue()
+    private static Queue<int> getEmptyQueue()
     {
       return new Queue<int>();
     }
@@ -120,7 +120,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
       Assert.IsFalse(queue.Contains(value + 1));
     }
 
-    private void confirmEmptyState(Queue<int> queue){
+    private static void confirmEmptyState(Queue<int> queue){
       Assert.AreEqual(queue.Count, 0);
       Assert.IsFalse(queue.Contains(values[0]));
       Assert.IsFalse(queue.Contains(value));
@@ -128,7 +128,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Queues
       Assert.Throws<EmptyQueueException>(() => queue.Dequeue());
     }
 
-    private void confirmHeadElement(Queue<int> queue, int index, bool reversed = false)
+    private static void confirmHeadElement(Queue<int> queue, int index, bool reversed = false)
     {
       var element = values[index];
 

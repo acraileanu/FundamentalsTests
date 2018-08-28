@@ -8,10 +8,9 @@ namespace FundamentalsTests.Trees.Tests
   [TestFixture]
   public class BinaryTreeTests
   {
-    const int value = 123;
-    private readonly int[] values = { 11, 32, 53, 74, 95, 116, 137, 158, 179 };
+    private static readonly int[] values = { 11, 32, 53, 74, 95, 116, 137, 158, 179 };
 
-    private BinaryTree<int> getPrepopulatedBinaryTree()
+    private static BinaryTree<int> getPrepopulatedBinaryTree()
     {
       //             95
       //       53          137
@@ -32,7 +31,7 @@ namespace FundamentalsTests.Trees.Tests
       return binaryTree;
     }
 
-    private BinaryTree<int> getEmptyBinaryTree()
+    private static BinaryTree<int> getEmptyBinaryTree()
     {
       return new BinaryTree<int>();
     }

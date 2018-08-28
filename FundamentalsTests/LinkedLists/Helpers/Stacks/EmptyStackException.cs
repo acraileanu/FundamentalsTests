@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace FundamentalsTests.LinkedLists.Helpers.Stacks
 {
   [Serializable]
-  internal class EmptyStackException : Exception
+  public class EmptyStackException : Exception
   {
     private static string getMessage(string message = null){
       return $"Stack is empty{(message != null ? " " + message : "")}!";
     }
 
-    internal EmptyStackException() : base(getMessage()) {}
+    public EmptyStackException() : base(getMessage()) {}
 
-    internal EmptyStackException(string message) : base(getMessage(message)) {}
+    public EmptyStackException(string message) : base(getMessage(message)) {}
 
-    internal EmptyStackException(string message, Exception innerException) : base(getMessage(message), innerException)
+    public EmptyStackException(string message, Exception innerException) : base(getMessage(message), innerException)
     {
     }
 
-    internal EmptyStackException(SerializationInfo info, StreamingContext context) : base(info, context)
+    protected EmptyStackException(SerializationInfo info, StreamingContext context) : base(info, context)
     {
     }
   }
