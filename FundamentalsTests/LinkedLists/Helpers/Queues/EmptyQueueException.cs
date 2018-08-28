@@ -4,21 +4,21 @@ using System.Runtime.Serialization;
 namespace FundamentalsTests.LinkedLists.Helpers.Queues
 {
   [Serializable]
-  internal class EmptyQueueException : Exception
+  public class EmptyQueueException : Exception
   {
     private static string getMessage(string message = null){
       return $"Queue is empty{(message != null ? " " + message : "")}!";
     }
 
-    internal EmptyQueueException() : base(getMessage()) {}
+    public EmptyQueueException() : base(getMessage()) {}
 
-    internal EmptyQueueException(string message) : base(getMessage(message)) {}
+    public EmptyQueueException(string message) : base(getMessage(message)) {}
 
-    internal EmptyQueueException(string message, Exception innerException) : base(getMessage(message), innerException)
+    public EmptyQueueException(string message, Exception innerException) : base(getMessage(message), innerException)
     {
     }
 
-    internal EmptyQueueException(SerializationInfo info, StreamingContext context) : base(info, context)
+    protected EmptyQueueException(SerializationInfo info, StreamingContext context) : base(info, context)
     {
     }
   }

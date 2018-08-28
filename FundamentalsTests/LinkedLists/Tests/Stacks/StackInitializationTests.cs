@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using FundamentalsTests.LinkedLists.Helpers.Stacks;
 
@@ -16,9 +17,9 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
     }
 
     [Test]
-    public void StackWtihEmptyEnumerableHasNoElements()
+    public void StackWithEmptyEnumerableHasNoElements()
     {
-      var stack = new Stack<int>(new int[] {});
+      var stack = new Stack<int>(Array.Empty<int>());
 
       Assert.AreEqual(0, stack.Count);
       Assert.AreEqual("<> (0)", stack.ToString());

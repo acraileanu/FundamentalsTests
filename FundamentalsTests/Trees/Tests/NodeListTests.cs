@@ -8,19 +8,19 @@ namespace FundamentalsTests.Trees.Tests
   public class NodeListTests
   {
     const int value = 123;
-    private readonly int[] values = { 11, 32, 53, 74, 95 };
+    private static readonly int[] values = { 11, 32, 53, 74, 95 };
 
-    private NodeList<int> getPrepopulatedNodeList()
+    private static NodeList<int> getPrepopulatedNodeList()
     {
       return new NodeList<int>(values);
     }
 
-    private NodeList<int> getSizedNodeList(int size)
+    private static NodeList<int> getSizedNodeList(int size)
     {
       return new NodeList<int>(size);
     }
 
-    private NodeList<int> getEmptyNodeList()
+    private static NodeList<int> getEmptyNodeList()
     {
       return new NodeList<int>();
     }

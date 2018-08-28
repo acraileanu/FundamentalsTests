@@ -7,14 +7,14 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
   public class StackOperationsTests
   {
     const int value = 123;
-    private readonly int[] values = { 11, 32, 53, 74, 95 };
+    private static readonly int[] values = { 11, 32, 53, 74, 95 };
 
-    private Stack<int> getPrepopulatedStack()
+    private static Stack<int> getPrepopulatedStack()
     {
       return new Stack<int>(values);
     }
 
-    private Stack<int> getEmptyStack()
+    private static Stack<int> getEmptyStack()
     {
       return new Stack<int>();
     }
@@ -121,7 +121,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       Assert.IsFalse(stack.Contains(value + 1));
     }
 
-    private void confirmEmptyState(Stack<int> stack){
+    private static void confirmEmptyState(Stack<int> stack){
       Assert.AreEqual(stack.Count, 0);
       Assert.IsFalse(stack.Contains(values[0]));
       Assert.IsFalse(stack.Contains(value));
@@ -129,7 +129,7 @@ namespace FundamentalsTests.LinkedLists.Tests.Stacks
       Assert.Throws<EmptyStackException>(() => stack.Pop());
     }
 
-    private void confirmLastElement(Stack<int> stack, int index)
+    private static void confirmLastElement(Stack<int> stack, int index)
     {
       var element = values[index];
 
