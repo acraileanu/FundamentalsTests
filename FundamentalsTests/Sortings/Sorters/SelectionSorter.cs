@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FundamentalsTests.Sortings;
 
-namespace FundamentalsTests.Sortings.SelectionSort
+namespace FundamentalsTests.Sortings.Sorters
 {
   public class SelectionSorter<T> : ISorter<T>
     where T : IComparable<T>
@@ -37,9 +37,9 @@ namespace FundamentalsTests.Sortings.SelectionSort
     }
 
     private static void swapItems(List<T> input, int first, int second){
-      var currentNumber = input[first];
+      var current = input[first];
       input[first] = input[second];
-      input[second] = currentNumber;
+      input[second] = current;
     }
   }
 }
