@@ -64,3 +64,10 @@ void Main()
 [MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1)
 
 **Purpose**: tests to demonstrate the expected behavior of queue implemented with a linked list
+
+
+## Trees
+
+[MSDN Documentation](https://msdn.microsoft.com/en-us/library/ms379570(v=vs.80).aspx)
+
+**Purpose**: tests to demonstrate the expected behavior of binary (search) trees

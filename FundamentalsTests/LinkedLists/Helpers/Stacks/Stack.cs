@@ -8,7 +8,8 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
   internal class Stack<T>
   {
     private Node<T> top;
-    private int count;
+
+    internal int Count { get; private set; }
 
     internal Stack(){
       Clear();
@@ -24,12 +25,13 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
     internal void Clear()
     {
       top = null;
-      count = 0;
+      Count = 0;
     }
 
     internal T Peek()
     {
-      if (top == null){
+      if (top == null)
+      {
         throw new EmptyStackException();
       }
       return top.Value;
@@ -39,14 +41,14 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
     {
       var value = Peek();
       top = top.Next;
-      count--;
+      Count--;
       return value;
     }
 
     internal void Push(T item)
     {
       top = new Node<T>(item, top);
-      count++;
+      Count++;
     }
 
     internal bool Contains(T item)
@@ -54,7 +56,8 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
       var node = top;
       while (node != null)
       {
-        if (node.Value.Equals(item)){
+        if (node.Value.Equals(item))
+        {
           return true;
         }
         node = node.Next;
@@ -65,26 +68,16 @@ namespace FundamentalsTests.LinkedLists.Helpers.Stacks
     public override string ToString(){
       var output = new StringBuilder();
       var node = top;
-      while (node != null){
+      while (node != null)
+      {
         output.AppendFormat("{0}, ", node.Value);
         node = node.Next;
       }
-      if (output.Length > 2){
+      if (output.Length > 2)
+      {
         output.Length -= 2;
       }
-      return $"<{output}> ({count})";
-    }
-
-    internal int Count
-    {
-      get
-      {
-        return count;
-      }
-      set
-      {
-        count = value;
-      }
+      return $"<{output}> ({Count})";
     }
   }
 }
