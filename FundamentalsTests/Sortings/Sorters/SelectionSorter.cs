@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FundamentalsTests.Sortings;
 
-namespace FundamentalsTests.Sortings.SelectionSort
+namespace FundamentalsTests.Sortings.Sorters
 {
   public class SelectionSorter<T> : ISorter<T>
     where T : IComparable<T>
