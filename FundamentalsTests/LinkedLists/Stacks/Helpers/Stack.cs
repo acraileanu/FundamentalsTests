@@ -11,14 +11,16 @@ namespace FundamentalsTests.LinkedLists.Stacks.Helpers
 
     internal int Count { get; private set; }
 
-    internal Stack(){
+    internal Stack(IEnumerable<T> collection = null)
+    {
       Clear();
-    }
 
-    internal Stack(IEnumerable<T> collection) : this(){
-      foreach (T item in collection)
+      if (collection != null)
       {
-        Push(item);
+        foreach (T item in collection)
+        {
+          Push(item);
+        }
       }
     }
 
@@ -34,6 +36,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Helpers
       {
         throw new EmptyStackException();
       }
+
       return top.Value;
     }
 
@@ -42,6 +45,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Helpers
       var value = Peek();
       top = top.Next;
       Count--;
+
       return value;
     }
 
@@ -54,29 +58,36 @@ namespace FundamentalsTests.LinkedLists.Stacks.Helpers
     internal bool Contains(T item)
     {
       var node = top;
+
       while (node != null)
       {
         if (node.Value.Equals(item))
         {
           return true;
         }
+
         node = node.Next;
       }
+
       return false;
     }
 
-    public override string ToString(){
+    public override string ToString()
+    {
       var output = new StringBuilder();
       var node = top;
+
       while (node != null)
       {
         output.AppendFormat("{0}, ", node.Value);
         node = node.Next;
       }
+
       if (output.Length > 2)
       {
         output.Length -= 2;
       }
+
       return $"<{output}> ({Count})";
     }
   }

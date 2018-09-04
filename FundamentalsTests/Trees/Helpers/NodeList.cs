@@ -5,8 +5,7 @@ namespace FundamentalsTests.Trees.Helpers
 {
   internal class NodeList<T> : Collection<Node<T>>
   {
-    internal NodeList() : base() {}
-    internal NodeList(int initialSize)
+    internal NodeList(int initialSize = 0)
     {
       for (var index = 0; index < initialSize; index++)
       {

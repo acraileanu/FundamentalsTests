@@ -7,7 +7,8 @@ namespace FundamentalsTests.Trees.Helpers
   {
     internal int Count { get; private set; }
 
-    internal override void Clear(){
+    internal override void Clear()
+    {
       base.Clear();
       Count = 0;
     }
@@ -53,7 +54,8 @@ namespace FundamentalsTests.Trees.Helpers
       var parent = getParentNode(Root, data);
       var current = getNodeByParentAndData(parent, data);
 
-      if (current == null){
+      if (current == null)
+      {
         return false;
       }
 
@@ -140,7 +142,8 @@ namespace FundamentalsTests.Trees.Helpers
       }
     }
 
-    private static BinaryTreeNode<T> getNodeByValue(BinaryTreeNode<T> current, T data){
+    private static BinaryTreeNode<T> getNodeByValue(BinaryTreeNode<T> current, T data)
+    {
       if (current == null)
       {
         return null;
@@ -159,7 +162,8 @@ namespace FundamentalsTests.Trees.Helpers
       return getNodeByValue(current.Right, data);
     }
 
-    private static BinaryTreeNode<T> getParentNode(BinaryTreeNode<T> current, T data, BinaryTreeNode<T> parent = null){
+    private static BinaryTreeNode<T> getParentNode(BinaryTreeNode<T> current, T data, BinaryTreeNode<T> parent = null)
+    {
       if (current == null)
       {
         return parent;

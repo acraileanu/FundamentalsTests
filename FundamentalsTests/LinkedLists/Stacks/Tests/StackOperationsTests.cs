@@ -121,7 +121,8 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
       Assert.IsFalse(stack.Contains(value + 1));
     }
 
-    private static void confirmEmptyState(Stack<int> stack){
+    private static void confirmEmptyState(Stack<int> stack)
+    {
       Assert.AreEqual(stack.Count, 0);
       Assert.IsFalse(stack.Contains(values[0]));
       Assert.IsFalse(stack.Contains(value));

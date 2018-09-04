@@ -3,15 +3,18 @@ namespace FundamentalsTests.Trees.Helpers
   internal class BinaryTreeNode<T> : Node<T>
   {
     internal BinaryTreeNode() : base() {}
-    internal BinaryTreeNode(T value) : base(value, null) {}
-    internal BinaryTreeNode(T value, BinaryTreeNode<T> left, BinaryTreeNode<T> right)
+    internal BinaryTreeNode(T value, BinaryTreeNode<T> left = null, BinaryTreeNode<T> right = null)
     {
       base.Value = value;
-      var children = new NodeList<T>(2);
-      children[0] = left;
-      children[1] = right;
 
-      base.LinkedNodes = children;
+      if ((left != null) || (right != null))
+      {
+        var children = new NodeList<T>(2);
+        children[0] = left;
+        children[1] = right;
+
+        base.LinkedNodes = children;
+      }
     }
 
     internal BinaryTreeNode<T> Left

@@ -82,3 +82,24 @@ void Main()
 Implemented algorithms:
 - Selection sort
 - Bubble sort
+
+
+## TODO:
+- more sorts
+  - insertion sort
+  - merge sort
+  - quick sort
+  - heap sort
+  - counting sort
+  - radix sort
+- graphs - https://msdn.microsoft.com/en-us/library/ms379574(v=vs.80).aspx
+  - minimum spanning tree
+  - shortest path
+  - bfs / dfs
+- hashset - https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?redirectedfrom=MSDN&view=netframework-4.7.2
+- balancing trees
+  - avl trees
+  - golden trees
+  - red black trees
+  - b-trees
+- fibonacci

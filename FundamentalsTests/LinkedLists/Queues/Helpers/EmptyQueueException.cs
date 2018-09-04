@@ -6,7 +6,8 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
   [Serializable]
   public class EmptyQueueException : Exception
   {
-    private static string getMessage(string message = null){
+    private static string getMessage(string message = null)
+    {
       return $"Queue is empty{(message != null ? " " + message : "")}!";
     }
 
@@ -14,12 +15,8 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
 
     public EmptyQueueException(string message) : base(getMessage(message)) {}
 
-    public EmptyQueueException(string message, Exception innerException) : base(getMessage(message), innerException)
-    {
-    }
+    public EmptyQueueException(string message, Exception innerException) : base(getMessage(message), innerException) {}
 
-    protected EmptyQueueException(SerializationInfo info, StreamingContext context) : base(info, context)
-    {
-    }
+    protected EmptyQueueException(SerializationInfo info, StreamingContext context) : base(info, context) {}
   }
 }
