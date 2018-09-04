@@ -21,6 +21,11 @@ namespace FundamentalsTests.Sortings
       sorter = (ISorter<int>)Activator.CreateInstance(sorterType);
     }
 
+    private static List<int> generateRandomValues()
+    {
+      return Enumerable.Range(0, 100).Shuffle().ToList<int>();
+    }
+
     [Test]
     public void SortingArrayReturnsSameNumberOfElements()
     {
@@ -75,6 +80,17 @@ namespace FundamentalsTests.Sortings
       expected.Sort();
       var listToSort = new List<int>(expected);
       listToSort.Reverse();
+      var result = sorter.Sort(listToSort);
+
+      Assert.AreEqual(expected, result);
+    }
+
+    [Test]
+    public void SortingRandomListReturnsSortedList()
+    {
+      var expected = generateRandomValues();
+      var listToSort = new List<int>(expected);
+      expected.Sort();
       var result = sorter.Sort(listToSort);
 
       Assert.AreEqual(expected, result);
