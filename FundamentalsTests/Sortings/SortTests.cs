@@ -10,6 +10,7 @@ namespace FundamentalsTests.Sortings
 {
   [TestFixture(typeof(SelectionSorter<int>))]
   [TestFixture(typeof(BubbleSorter<int>))]
+  [TestFixture(typeof(InsertionSorter<int>))]
   public class SortTests
   {
     const int value = 123;
@@ -21,10 +22,17 @@ namespace FundamentalsTests.Sortings
       sorter = (ISorter<int>)Activator.CreateInstance(sorterType);
     }
 
+    private static List<int> generateRandomValues()
+    {
+      return Enumerable.Range(0, 100).Shuffle().ToList<int>();
+    }
+
     [Test]
     public void SortingArrayReturnsSameNumberOfElements()
     {
-      var result = sorter.Sort(values);
+      var listToSort = new List<int>(values);
+
+      var result = sorter.Sort(listToSort);
 
       Assert.AreEqual(values.Count, result.Count);
     }
@@ -75,6 +83,17 @@ namespace FundamentalsTests.Sortings
       expected.Sort();
       var listToSort = new List<int>(expected);
       listToSort.Reverse();
+      var result = sorter.Sort(listToSort);
+
+      Assert.AreEqual(expected, result);
+    }
+
+    [Test]
+    public void SortingRandomListReturnsSortedList()
+    {
+      var expected = generateRandomValues();
+      var listToSort = new List<int>(expected);
+      expected.Sort();
       var result = sorter.Sort(listToSort);
 
       Assert.AreEqual(expected, result);

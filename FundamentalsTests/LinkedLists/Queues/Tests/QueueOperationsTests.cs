@@ -120,7 +120,8 @@ namespace FundamentalsTests.LinkedLists.Queues.Tests
       Assert.IsFalse(queue.Contains(value + 1));
     }
 
-    private static void confirmEmptyState(Queue<int> queue){
+    private static void confirmEmptyState(Queue<int> queue)
+    {
       Assert.AreEqual(queue.Count, 0);
       Assert.IsFalse(queue.Contains(values[0]));
       Assert.IsFalse(queue.Contains(value));

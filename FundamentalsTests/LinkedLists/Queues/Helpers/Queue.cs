@@ -12,16 +12,16 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
 
     internal int Count { get; private set; }
 
-    internal Queue()
+    internal Queue(IEnumerable<T> collection = null)
     {
       Clear();
-    }
 
-    internal Queue(IEnumerable<T> collection) : this()
-    {
-      foreach (T item in collection)
+      if (collection != null)
       {
-        Enqueue(item);
+        foreach (T item in collection)
+        {
+          Enqueue(item);
+        }
       }
     }
 
@@ -37,6 +37,7 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
       {
         throw new EmptyQueueException();
       }
+
       return head.Value;
     }
 
@@ -44,17 +45,21 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
     {
       var value = Peek();
       head = head.Next;
+
       if (head == null)
       {
         tail = null;
       }
+
       Count--;
+
       return value;
     }
 
     internal void Enqueue(T item)
     {
       var node = new Node<T>(item);
+
       if (head == null)
       {
         head = tail = node;
@@ -64,12 +69,14 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
         tail.Next = node;
         tail = node;
       }
+
       Count++;
     }
 
     internal bool Contains(T item)
     {
       var node = head;
+
       while (node != null)
       {
         if (node.Value.Equals(item))
@@ -78,6 +85,7 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
         }
         node = node.Next;
       }
+
       return false;
     }
 
@@ -85,15 +93,18 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
     {
       var output = new StringBuilder();
       var node = head;
+
       while (node != null)
       {
         output.AppendFormat("{0}, ", node.Value);
         node = node.Next;
       }
+
       if (output.Length > 2)
       {
         output.Length -= 2;
       }
+
       return $"<{output}> ({Count})";
     }
   }

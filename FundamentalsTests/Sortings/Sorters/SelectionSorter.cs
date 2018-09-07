@@ -36,7 +36,8 @@ namespace FundamentalsTests.Sortings.Sorters
       return input;
     }
 
-    private static void swapItems(List<T> input, int first, int second){
+    private static void swapItems(List<T> input, int first, int second)
+    {
       var current = input[first];
       input[first] = input[second];
       input[second] = current;

@@ -18,7 +18,8 @@ namespace FundamentalsTests.Sortings.Sorters
       var end = input.Count;
       var isSorted = false;
 
-      while (!isSorted){
+      while (!isSorted)
+      {
         isSorted = true;
         end--;
 
@@ -35,7 +36,8 @@ namespace FundamentalsTests.Sortings.Sorters
       return input;
     }
 
-    private static void swapItems(List<T> input, int index){
+    private static void swapItems(List<T> input, int index)
+    {
       var current = input[index];
       input[index] = input[index + 1];
       input[index + 1] = current;
