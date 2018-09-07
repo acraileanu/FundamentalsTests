@@ -10,6 +10,7 @@ namespace FundamentalsTests.Sortings
 {
   [TestFixture(typeof(SelectionSorter<int>))]
   [TestFixture(typeof(BubbleSorter<int>))]
+  [TestFixture(typeof(InsertionSorter<int>))]
   public class SortTests
   {
     const int value = 123;
@@ -29,7 +30,9 @@ namespace FundamentalsTests.Sortings
     [Test]
     public void SortingArrayReturnsSameNumberOfElements()
     {
-      var result = sorter.Sort(values);
+      var listToSort = new List<int>(values);
+
+      var result = sorter.Sort(listToSort);
 
       Assert.AreEqual(values.Count, result.Count);
     }

@@ -82,11 +82,11 @@ void Main()
 Implemented algorithms:
 - Selection sort
 - Bubble sort
+- Insertion sort
 
 
 ## TODO:
 - more sorts
-  - insertion sort
   - merge sort
   - quick sort
   - heap sort
