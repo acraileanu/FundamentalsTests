@@ -11,13 +11,14 @@ namespace FundamentalsTests.Sortings
   [TestFixture(typeof(SelectionSorter<int>))]
   [TestFixture(typeof(BubbleSorter<int>))]
   [TestFixture(typeof(InsertionSorter<int>))]
-  public class SortTests
+  [TestFixture(typeof(MergeSorter<int>))]
+  public class IntegersSortTests
   {
     const int value = 123;
     private static readonly List<int> values = new List<int> { 137, 53, 32, 179, 95, 11, 116, 158, 74 };
     private ISorter<int> sorter;
 
-    public SortTests(Type sorterType)
+    public IntegersSortTests(Type sorterType)
     {
       sorter = (ISorter<int>)Activator.CreateInstance(sorterType);
     }
