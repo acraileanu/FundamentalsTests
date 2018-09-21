@@ -84,6 +84,15 @@ Implemented algorithms:
 - Bubble sort
 - Insertion sort
 
+## Contributing
+
+We welcome community contributions to this project. Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for more details.
+
+By contributing your code, you agree to license your contribution under the terms of the [GNU GENERAL PUBLIC LICENSE](LICENSE).
+
+## License
+
+All files are released with the [GNU GENERAL PUBLIC LICENSE](LICENSE).
 
 ## TODO:
 - more sorts
