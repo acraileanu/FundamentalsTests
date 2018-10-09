@@ -1,7 +1,7 @@
 ﻿namespace FundamentalsTests.PassingParameters.Helpers
 {
-  internal class ObjectWithIntProperty : ITypeWithIntProperty
+  public sealed class ObjectWithIntProperty : ITypeWithIntProperty
   {
-    public int Property { get; set; }
+    public int IntegerProperty { get; set; }
   }
 }

@@ -2,15 +2,15 @@
 
 namespace FundamentalsTests.PassingParameters.Helpers
 {
-  internal static class PassingParametersHelpers
+  public static class PassingParametersHelpers
   {
-    internal static void ChangeInt(int input)
+    public static void ChangeInt(int input)
     {
       input = GetIncrementedIntOrMinValue(input);
       Console.WriteLine("Value inside method is {0}", input);
     }
 
-    internal static void ChangeIntWithReference(ref int input)
+    public static void ChangeIntWithReference(ref int input)
     {
       input = GetIncrementedIntOrMinValue(input);
       Console.WriteLine("Value inside method is {0}", input);
@@ -23,40 +23,55 @@ namespace FundamentalsTests.PassingParameters.Helpers
         input + 1;
     }
 
-    internal static void ChangePropertyValue(ITypeWithIntProperty input)
+    public static void ChangePropertyValue(ITypeWithIntProperty input)
     {
-      input.Property = GetIncrementedIntOrMinValue(input.Property);
-      Console.WriteLine("Property value inside method is {0}", input.Property);
+      if (input == null)
+      {
+        throw new ArgumentNullException(nameof(input));
+      }
+
+      input.IntegerProperty = GetIncrementedIntOrMinValue(input.IntegerProperty);
+      Console.WriteLine("IntegerProperty value inside method is {0}", input.IntegerProperty);
     }
 
-    internal static void ReinitializeObject(ObjectWithIntProperty input)
+    public static void ReinitializeObject(ObjectWithIntProperty input)
     {
-      input = new ObjectWithIntProperty { Property = GetIncrementedIntOrMinValue(input.Property) };
-      Console.WriteLine("Property value inside method is {0}", input.Property);
+      if (input == null)
+      {
+        throw new ArgumentNullException(nameof(input));
+      }
+
+      input = new ObjectWithIntProperty { IntegerProperty = GetIncrementedIntOrMinValue(input.IntegerProperty) };
+      Console.WriteLine("IntegerProperty value inside method is {0}", input.IntegerProperty);
     }
 
-    internal static void ReinitializeObjectWithReference(ref ObjectWithIntProperty input)
+    public static void ReinitializeObjectWithReference(ref ObjectWithIntProperty input)
     {
-      input = new ObjectWithIntProperty { Property = GetIncrementedIntOrMinValue(input.Property) };
-      Console.WriteLine("Property value inside method is {0}", input.Property);
+      if (input == null)
+      {
+        throw new ArgumentNullException(nameof(input));
+      }
+
+      input = new ObjectWithIntProperty { IntegerProperty = GetIncrementedIntOrMinValue(input.IntegerProperty) };
+      Console.WriteLine("IntegerProperty value inside method is {0}", input.IntegerProperty);
     }
 
-    internal static void ChangePropertyValueWithReference(ref StructWithIntProperty input)
+    public static void ChangePropertyValueWithReference(ref StructWithIntProperty input)
     {
-      input.Property = GetIncrementedIntOrMinValue(input.Property);
-      Console.WriteLine("Property value inside method is {0}", input.Property);
+      input.IntegerProperty = GetIncrementedIntOrMinValue(input.IntegerProperty);
+      Console.WriteLine("IntegerProperty value inside method is {0}", input.IntegerProperty);
     }
 
-    internal static void ReinitializeStruct(StructWithIntProperty input)
+    public static void ReinitializeStruct(StructWithIntProperty input)
     {
-      input = new StructWithIntProperty { Property = GetIncrementedIntOrMinValue(input.Property) };
-      Console.WriteLine("Property value inside method is {0}", input.Property);
+      input = new StructWithIntProperty { IntegerProperty = GetIncrementedIntOrMinValue(input.IntegerProperty) };
+      Console.WriteLine("IntegerProperty value inside method is {0}", input.IntegerProperty);
     }
 
-    internal static void ReinitializeStructWithReference(ref StructWithIntProperty input)
+    public static void ReinitializeStructWithReference(ref StructWithIntProperty input)
     {
-      input = new StructWithIntProperty { Property = GetIncrementedIntOrMinValue(input.Property) };
-      Console.WriteLine("Property value inside method is {0}", input.Property);
+      input = new StructWithIntProperty { IntegerProperty = GetIncrementedIntOrMinValue(input.IntegerProperty) };
+      Console.WriteLine("IntegerProperty value inside method is {0}", input.IntegerProperty);
     }
   }
 }

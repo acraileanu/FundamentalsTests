@@ -1,13 +1,17 @@
 namespace FundamentalsTests.Trees.Helpers
 {
-  internal class Node<T>
+  public class Node<T>
   {
     public T Value { get; protected set; }
 
-    public NodeList<T> LinkedNodes { get; protected set; }
+    public NodeListCollection<T> LinkedNodes { get; }
 
-    internal Node() {}
-    internal Node(T value, NodeList<T> linkedNodes = null)
+    public Node()
+    {
+      LinkedNodes = new NodeListCollection<T>();
+    }
+
+    public Node(T value, NodeListCollection<T> linkedNodes = null)
     {
       Value = value;
       LinkedNodes = linkedNodes;

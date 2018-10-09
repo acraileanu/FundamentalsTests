@@ -10,25 +10,25 @@ namespace FundamentalsTests.Trees.Tests
     const int value = 123;
     private static readonly int[] values = { 11, 32, 53, 74, 95 };
 
-    private static NodeList<int> getPrepopulatedNodeList()
+    private static NodeListCollection<int> GetPrepopulatedNodeList()
     {
-      return new NodeList<int>(values);
+      return new NodeListCollection<int>(values);
     }
 
-    private static NodeList<int> getSizedNodeList(int size)
+    private static NodeListCollection<int> GetSizedNodeList(int size)
     {
-      return new NodeList<int>(size);
+      return new NodeListCollection<int>(size);
     }
 
-    private static NodeList<int> getEmptyNodeList()
+    private static NodeListCollection<int> GetEmptyNodeList()
     {
-      return new NodeList<int>();
+      return new NodeListCollection<int>();
     }
 
     [Test]
     public void EmptyNodeListHasNoElements()
     {
-      var nodeList = getEmptyNodeList();
+      var nodeList = GetEmptyNodeList();
 
       Assert.AreEqual(0, nodeList.Count);
     }
@@ -38,7 +38,7 @@ namespace FundamentalsTests.Trees.Tests
     {
       var random = new Random();
       var size = random.Next(1, 10);
-      var nodeList = getSizedNodeList(size);
+      var nodeList = GetSizedNodeList(size);
 
       Assert.AreEqual(size, nodeList.Count);
       Assert.IsNull(nodeList[0]);
@@ -47,7 +47,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void ValuedNodeListHasElements()
     {
-      var nodeList = getPrepopulatedNodeList();
+      var nodeList = GetPrepopulatedNodeList();
 
       Assert.AreEqual(values.Length, nodeList.Count);
       for (var index = 0; index < values.Length; index++)
@@ -59,7 +59,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void ElementInNodeListIsFound()
     {
-      var nodeList = getPrepopulatedNodeList();
+      var nodeList = GetPrepopulatedNodeList();
 
       Assert.IsNotNull(nodeList.FindByValue(values[0]));
     }
@@ -67,7 +67,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void ElementNotInNodeListIsNotFound()
     {
-      var nodeList = getPrepopulatedNodeList();
+      var nodeList = GetPrepopulatedNodeList();
 
       Assert.IsNull(nodeList.FindByValue(value));
     }

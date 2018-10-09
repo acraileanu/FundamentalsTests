@@ -29,14 +29,14 @@ namespace FundamentalsTests.Sortings.Sorters
 
         if (smallestIndex != index)
         {
-          swapItems(input, index, smallestIndex);
+          SwapItems(input, index, smallestIndex);
         }
       }
 
       return input;
     }
 
-    private static void swapItems(List<T> input, int first, int second)
+    private static void SwapItems(List<T> input, int first, int second)
     {
       var current = input[first];
       input[first] = input[second];

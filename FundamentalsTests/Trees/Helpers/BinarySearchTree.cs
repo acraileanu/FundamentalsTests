@@ -2,26 +2,26 @@ using System;
 
 namespace FundamentalsTests.Trees.Helpers
 {
-  internal class BinarySearchTree<T> : BinaryTree<T>
+  public sealed class BinarySearchTree<T> : BinaryTree<T>
     where T : IComparable<T>
   {
-    internal int Count { get; private set; }
+    public int Count { get; private set; }
 
-    internal override void Clear()
+    public override void Clear()
     {
       base.Clear();
       Count = 0;
     }
 
-    internal bool Contains(T data)
+    public bool Contains(T data)
     {
-      return getNodeByValue(Root, data) != null;
+      return GetNodeByValue(Root, data) != null;
     }
 
-    internal void Add(T data)
+    public void Add(T data)
     {
       var node = new BinaryTreeNode<T>(data);
-      var parent = getParentNode(Root, data);
+      var parent = GetParentNode(Root, data);
 
       if (parent == null)
       {
@@ -44,31 +44,31 @@ namespace FundamentalsTests.Trees.Helpers
       }
     }
 
-    internal bool Remove(T data)
+    public bool Remove(T data)
     {
       if (Root == null)
       {
         return false;
       }
 
-      var parent = getParentNode(Root, data);
-      var current = getNodeByParentAndData(parent, data);
+      var parent = GetParentNode(Root, data);
+      var current = GetNodeByParentAndData(parent, data);
 
       if (current == null)
       {
         return false;
       }
 
-      var replacementNode = getReplacementNode(current);
+      var replacementNode = GetReplacementNode(current);
 
-      replaceNode(replacementNode, parent, current.Value);
+      ReplaceNode(replacementNode, parent, current.Value);
 
       Count--;
 
       return true;
     }
 
-    private void replaceNode(BinaryTreeNode<T> replacementNode, BinaryTreeNode<T> parent, T compareValue)
+    private void ReplaceNode(BinaryTreeNode<T> replacementNode, BinaryTreeNode<T> parent, T compareValue)
     {
       if (parent == null)
       {
@@ -88,7 +88,7 @@ namespace FundamentalsTests.Trees.Helpers
       }
     }
 
-    private static BinaryTreeNode<T> getReplacementNode(BinaryTreeNode<T> current)
+    private static BinaryTreeNode<T> GetReplacementNode(BinaryTreeNode<T> current)
     {
       if (current.Right == null)
       {
@@ -118,7 +118,7 @@ namespace FundamentalsTests.Trees.Helpers
       }
     }
 
-    private BinaryTreeNode<T> getNodeByParentAndData(BinaryTreeNode<T> parent, T data)
+    private BinaryTreeNode<T> GetNodeByParentAndData(BinaryTreeNode<T> parent, T data)
     {
       if (parent == null)
       {
@@ -142,7 +142,7 @@ namespace FundamentalsTests.Trees.Helpers
       }
     }
 
-    private static BinaryTreeNode<T> getNodeByValue(BinaryTreeNode<T> current, T data)
+    private static BinaryTreeNode<T> GetNodeByValue(BinaryTreeNode<T> current, T data)
     {
       if (current == null)
       {
@@ -156,13 +156,13 @@ namespace FundamentalsTests.Trees.Helpers
       }
       else if (result > 0)
       {
-        return getNodeByValue(current.Left, data);
+        return GetNodeByValue(current.Left, data);
       }
 
-      return getNodeByValue(current.Right, data);
+      return GetNodeByValue(current.Right, data);
     }
 
-    private static BinaryTreeNode<T> getParentNode(BinaryTreeNode<T> current, T data, BinaryTreeNode<T> parent = null)
+    private static BinaryTreeNode<T> GetParentNode(BinaryTreeNode<T> current, T data, BinaryTreeNode<T> parent = null)
     {
       if (current == null)
       {
@@ -176,10 +176,10 @@ namespace FundamentalsTests.Trees.Helpers
       }
       else if (result > 0)
       {
-        return getParentNode(current.Left, data, current);
+        return GetParentNode(current.Left, data, current);
       }
 
-      return getParentNode(current.Right, data, current);
+      return GetParentNode(current.Right, data, current);
     }
   }
 }

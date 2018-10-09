@@ -8,6 +8,7 @@ using System.Reflection;
 
 namespace FundamentalsTests.Sortings
 {
+  [CLSCompliant(false)]
   [TestFixture(typeof(SelectionSorter<int>))]
   [TestFixture(typeof(BubbleSorter<int>))]
   [TestFixture(typeof(InsertionSorter<int>))]
@@ -23,7 +24,7 @@ namespace FundamentalsTests.Sortings
       sorter = (ISorter<int>)Activator.CreateInstance(sorterType);
     }
 
-    private static List<int> generateRandomValues()
+    private static List<int> GenerateRandomValues()
     {
       return Enumerable.Range(0, 100).Shuffle().ToList<int>();
     }
@@ -92,7 +93,7 @@ namespace FundamentalsTests.Sortings
     [Test]
     public void SortingRandomListReturnsSortedList()
     {
-      var expected = generateRandomValues();
+      var expected = GenerateRandomValues();
       var listToSort = new List<int>(expected);
       expected.Sort();
       var result = sorter.Sort(listToSort);

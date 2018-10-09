@@ -11,7 +11,7 @@ namespace FundamentalsTests.Trees.Tests
     const int value = 123;
     private static readonly int[] values = { 11, 32, 53, 74, 95, 116, 137, 158, 179 };
 
-    private static BinarySearchTree<int> getPrepopulatedBinarySearchTree()
+    private static BinarySearchTree<int> GetPrepopulatedBinarySearchTree()
     {
       //             95
       //       53          137
@@ -32,7 +32,7 @@ namespace FundamentalsTests.Trees.Tests
       return binarySearchTree;
     }
 
-    private static BinarySearchTree<int> getEmptyBinarySearchTree()
+    private static BinarySearchTree<int> GetEmptyBinarySearchTree()
     {
       return new BinarySearchTree<int>();
     }
@@ -40,7 +40,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void EmptyBinarySearchTreeHasNoElements()
     {
-      var binarySearchTree = getEmptyBinarySearchTree();
+      var binarySearchTree = GetEmptyBinarySearchTree();
 
       Assert.AreEqual(0, binarySearchTree.Count);
     }
@@ -48,7 +48,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void ClearingBinarySearchTreeRemovesAllElements()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var existingValue = values[3];
 
       Assert.IsTrue(binarySearchTree.Contains(existingValue));
@@ -62,7 +62,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void AddingElementToEmptyBinarySearchTreeSetsItAsRoot()
     {
-      var binarySearchTree = getEmptyBinarySearchTree();
+      var binarySearchTree = GetEmptyBinarySearchTree();
 
       binarySearchTree.Add(value);
 
@@ -72,7 +72,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void AddingSmallerElementToBinarySearchTreeRootSetsItAsLeftNode()
     {
-      var binarySearchTree = getEmptyBinarySearchTree();
+      var binarySearchTree = GetEmptyBinarySearchTree();
 
       binarySearchTree.Add(values[1]);
       binarySearchTree.Add(values[0]);
@@ -84,7 +84,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void AddingLargerElementToBinarySearchTreeRootSetsItAsRightNode()
     {
-      var binarySearchTree = getEmptyBinarySearchTree();
+      var binarySearchTree = GetEmptyBinarySearchTree();
 
       binarySearchTree.Add(values[1]);
       binarySearchTree.Add(values[2]);
@@ -96,7 +96,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void AddingNewElementToPrepopulatedBinarySearchTreeSetsItAsRightNode()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
 
       binarySearchTree.Add(value);
 
@@ -106,7 +106,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void AddedElementIsFoundInBinarySearchTree()
     {
-      var binarySearchTree = getEmptyBinarySearchTree();
+      var binarySearchTree = GetEmptyBinarySearchTree();
       binarySearchTree.Add(value);
 
       Assert.IsTrue(binarySearchTree.Contains(value));
@@ -115,7 +115,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void NonAddedElementIsMissingFromBinarySearchTree()
     {
-      var binarySearchTree = getEmptyBinarySearchTree();
+      var binarySearchTree = GetEmptyBinarySearchTree();
       binarySearchTree.Add(value);
 
       Assert.IsFalse(binarySearchTree.Contains(value + 1));
@@ -124,7 +124,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void RemovingElementFromBinarySearchTreeUsesTheRightLeftMostNode()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var right = binarySearchTree.Root.Right.Left;
 
       var removed = binarySearchTree.Remove(binarySearchTree.Root.Value);
@@ -136,7 +136,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void RemovingLeftLeafElementFromBinarySearchTreeMakesNoChangesInStructure()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var removeValue = values[7];
       var expected = new List<int>();
       binarySearchTree.PreOrderTraversal(expected.Add);
@@ -153,7 +153,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void RemovingRightLeafElementFromBinarySearchTreeMakesNoChangesInStructure()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var removeValue = values[1];
       var expected = new List<int>();
       binarySearchTree.PreOrderTraversal(expected.Add);
@@ -170,7 +170,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void RemovingElementWithRightButNoRightLeftFromBinarySearchTreeUseRightNode()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var removeValue = values[3];
       var expected = new List<int>();
       binarySearchTree.PreOrderTraversal(expected.Add);
@@ -187,7 +187,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void RemovedElementIsMissingFromBinarySearchTree()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var removeValue = values[3];
 
       Assert.IsTrue(binarySearchTree.Contains(removeValue));
@@ -201,7 +201,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void AddingElementToBinarySearchTreeIncreasesSize()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var count = binarySearchTree.Count;
 
       Assert.IsFalse(binarySearchTree.Contains(value));
@@ -215,7 +215,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void AddingExistingElementToBinarySearchTreeDoesNotIncreaseSize()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var count = binarySearchTree.Count;
       var addValue = values[3];
 
@@ -230,7 +230,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void RemovingElementFromBinarySearchTreeDecreasesSize()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var count = binarySearchTree.Count;
       var removeValue = values[6];
 
@@ -245,7 +245,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void RemovingNonExistingElementFromBinarySearchTreeDoesNotDecreaseSize()
     {
-      var binarySearchTree = getPrepopulatedBinarySearchTree();
+      var binarySearchTree = GetPrepopulatedBinarySearchTree();
       var count = binarySearchTree.Count;
 
       Assert.IsFalse(binarySearchTree.Contains(value));
