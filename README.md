@@ -7,7 +7,6 @@ The project uses NUnit as external package.
 The project is verified using:
 [![CircleCI](https://circleci.com/gh/acraileanu/FundamentalsTests/tree/master.svg?style=svg)](https://circleci.com/gh/acraileanu/FundamentalsTests/tree/master)
 [![CodeFactor](https://www.codefactor.io/repository/github/acraileanu/fundamentalstests/badge)](https://www.codefactor.io/repository/github/acraileanu/fundamentalstests)
-[![codebeat badge](https://codebeat.co/badges/d665cf06-c021-431e-b07d-eeef27fd45c7)](https://codebeat.co/projects/github-com-acraileanu-fundamentalstests-master)
 
 
 ## String.Intern
