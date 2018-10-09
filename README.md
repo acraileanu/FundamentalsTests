@@ -42,7 +42,7 @@ void Main()
 
 ## Passing parameters
 
-[MSDN Documentation](https://msdn.microsoft.com/en-us/library/0f66670z(v=vs.71).aspx)
+[MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/passing-parameters)
 
 **Purpose**: tests to demonstrate the expected behavior of value and reference types being passed as parameters
 
@@ -51,7 +51,7 @@ void Main()
 
 ## Checked vs. Unchecked
 
-[MSDN Documentation](https://msdn.microsoft.com/en-us/library/74b4xzyw(v=vs.71).aspx)
+[MSDN Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked-and-unchecked)
 
 **Purpose**: tests to demonstrate the difference between checked and unchecked code
 
