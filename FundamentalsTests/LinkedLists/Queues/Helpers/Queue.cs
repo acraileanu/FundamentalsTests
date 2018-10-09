@@ -5,14 +5,14 @@ using FundamentalsTests.LinkedLists.Helpers;
 
 namespace FundamentalsTests.LinkedLists.Queues.Helpers
 {
-  internal class Queue<T>
+  public sealed class Queue<T>
   {
     private Node<T> head;
     private Node<T> tail;
 
-    internal int Count { get; private set; }
+    public int Count { get; private set; }
 
-    internal Queue(IEnumerable<T> collection = null)
+    public Queue(IEnumerable<T> collection = null)
     {
       Clear();
 
@@ -25,13 +25,13 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
       }
     }
 
-    internal void Clear()
+    public void Clear()
     {
       head = tail = null;
       Count = 0;
     }
 
-    internal T Peek()
+    public T Peek()
     {
       if (head == null)
       {
@@ -41,7 +41,7 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
       return head.Value;
     }
 
-    internal T Dequeue()
+    public T Dequeue()
     {
       var value = Peek();
       head = head.Next;
@@ -56,7 +56,7 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
       return value;
     }
 
-    internal void Enqueue(T item)
+    public void Enqueue(T item)
     {
       var node = new Node<T>(item);
 
@@ -73,7 +73,7 @@ namespace FundamentalsTests.LinkedLists.Queues.Helpers
       Count++;
     }
 
-    internal bool Contains(T item)
+    public bool Contains(T item)
     {
       var node = head;
 

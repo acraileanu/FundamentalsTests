@@ -1,18 +1,21 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace FundamentalsTests.Trees.Helpers
 {
-  internal class NodeList<T> : Collection<Node<T>>
+  public sealed class NodeListCollection<T> : Collection<Node<T>>
   {
-    internal NodeList(int initialSize = 0)
+    public NodeListCollection(int initialSize = 0)
     {
       for (var index = 0; index < initialSize; index++)
       {
         base.Items.Add(default(Node<T>));
       }
     }
-    internal NodeList(IList<T> list) : base()
+
+    public NodeListCollection(IList<T> list) : base()
     {
       foreach (var item in list)
       {
@@ -20,7 +23,7 @@ namespace FundamentalsTests.Trees.Helpers
       }
     }
 
-    internal Node<T> FindByValue(T value)
+    public Node<T> FindByValue(T value)
     {
       foreach (var node in Items)
       {

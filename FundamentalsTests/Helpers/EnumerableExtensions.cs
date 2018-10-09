@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+
+[assembly: CLSCompliant(true)]
+[assembly: ComVisible(false)]
 
 public static class EnumerableExtensions
 {
@@ -28,12 +32,7 @@ public static class EnumerableExtensions
 
   public static void Enqueue<T>(this IEnumerable<T> source, T value)
   {
-    if (source == null)
-    {
-      throw new ArgumentNullException(nameof(source));
-    }
-
-    source.Append(value);
+    source.Push(value);
   }
 
   public static T Dequeue<T>(this IEnumerable<T> source)

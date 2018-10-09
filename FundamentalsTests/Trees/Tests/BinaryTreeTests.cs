@@ -10,7 +10,7 @@ namespace FundamentalsTests.Trees.Tests
   {
     private static readonly int[] values = { 11, 32, 53, 74, 95, 116, 137, 158, 179 };
 
-    private static BinaryTree<int> getPrepopulatedBinaryTree()
+    private static BinaryTree<int> GetPrepopulatedBinaryTree()
     {
       //             95
       //       53          137
@@ -31,7 +31,7 @@ namespace FundamentalsTests.Trees.Tests
       return binaryTree;
     }
 
-    private static BinaryTree<int> getEmptyBinaryTree()
+    private static BinaryTree<int> GetEmptyBinaryTree()
     {
       return new BinaryTree<int>();
     }
@@ -39,7 +39,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void EmptyBinaryTreeHasNoElements()
     {
-      var binaryTree = getEmptyBinaryTree();
+      var binaryTree = GetEmptyBinaryTree();
 
       Assert.IsNull(binaryTree.Root);
     }
@@ -47,7 +47,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void ClearingBinaryTreeRemovesAllElements()
     {
-      var binaryTree = getPrepopulatedBinaryTree();
+      var binaryTree = GetPrepopulatedBinaryTree();
 
       binaryTree.Clear();
 
@@ -57,7 +57,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void PreOrderTraversalEmptyBinaryTreeReturnsNoElements()
     {
-      var binaryTree = getEmptyBinaryTree();
+      var binaryTree = GetEmptyBinaryTree();
       var result = new List<int>();
 
       binaryTree.PreOrderTraversal(result.Add);
@@ -68,7 +68,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void PreOrderTraversalBinaryTreeReturnsElementsInCorrectOrder()
     {
-      var binaryTree = getPrepopulatedBinaryTree();
+      var binaryTree = GetPrepopulatedBinaryTree();
       var result = new List<int>();
       var expected = new List<int> { 95, 53, 11, 32, 74, 137, 116, 179, 158 };
 
@@ -80,7 +80,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void PostOrderTraversalEmptyBinaryTreeReturnsNoElements()
     {
-      var binaryTree = getEmptyBinaryTree();
+      var binaryTree = GetEmptyBinaryTree();
       var result = new List<int>();
 
       binaryTree.PostOrderTraversal(result.Add);
@@ -91,7 +91,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void PostOrderTraversalBinaryTreeReturnsElementsInCorrectOrder()
     {
-      var binaryTree = getPrepopulatedBinaryTree();
+      var binaryTree = GetPrepopulatedBinaryTree();
       var result = new List<int>();
       var expected = new List<int> { 32, 11, 74, 53, 116, 158, 179, 137, 95 };
 
@@ -103,7 +103,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void InOrderTraversalEmptyBinaryTreeReturnsNoElements()
     {
-      var binaryTree = getEmptyBinaryTree();
+      var binaryTree = GetEmptyBinaryTree();
       var result = new List<int>();
 
       binaryTree.InOrderTraversal(result.Add);
@@ -114,7 +114,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void InOrderTraversalBinaryTreeReturnsElementsInCorrectOrder()
     {
-      var binaryTree = getPrepopulatedBinaryTree();
+      var binaryTree = GetPrepopulatedBinaryTree();
       var result = new List<int>();
       var expected = new List<int> { 11, 32, 53, 74, 95, 116, 137, 158, 179 };
 
@@ -128,7 +128,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void BreadthFirstTraversalEmptyBinaryTreeReturnsNoElements()
     {
-      var binaryTree = getEmptyBinaryTree();
+      var binaryTree = GetEmptyBinaryTree();
       var result = new List<int>();
 
       binaryTree.BreadthFirstTraversal(result.Add);
@@ -139,7 +139,7 @@ namespace FundamentalsTests.Trees.Tests
     [Test]
     public void BreadthFirstTraversalBinaryTreeReturnsElementsInCorrectOrder()
     {
-      var binaryTree = getPrepopulatedBinaryTree();
+      var binaryTree = GetPrepopulatedBinaryTree();
       var result = new List<int>();
       var expected = new List<int> { 95, 53, 137, 11, 74, 116, 179, 32, 158 };
 

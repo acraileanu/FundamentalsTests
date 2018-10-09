@@ -27,7 +27,7 @@ namespace FundamentalsTests.Sortings.Sorters
         {
           if (input[index].CompareTo(input[index + 1]) > 0)
           {
-            swapItems(input, index);
+            SwapItems(input, index);
             isSorted = false;
           }
         }
@@ -36,7 +36,7 @@ namespace FundamentalsTests.Sortings.Sorters
       return input;
     }
 
-    private static void swapItems(List<T> input, int index)
+    private static void SwapItems(List<T> input, int index)
     {
       var current = input[index];
       input[index] = input[index + 1];

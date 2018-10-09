@@ -28,12 +28,7 @@ public static class ListExtensions
 
   public static void Enqueue<T>(this List<T> source, T value)
   {
-    if (source == null)
-    {
-      throw new ArgumentNullException(nameof(source));
-    }
-
-    source.Add(value);
+    source.Push(value);
   }
 
   public static T Dequeue<T>(this List<T> source)

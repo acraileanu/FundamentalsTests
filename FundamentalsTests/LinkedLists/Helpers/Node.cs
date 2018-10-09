@@ -1,11 +1,11 @@
 namespace FundamentalsTests.LinkedLists.Helpers
 {
-  internal class Node<T>
+  public class Node<T>
   {
-    internal T Value { get; set; }
-    internal Node<T> Next { get; set; }
+    public T Value { get; set; }
+    public Node<T> Next { get; set; }
 
-    internal Node(T value, Node<T> next = null)
+    public Node(T value, Node<T> next = null)
     {
       Value = value;
       Next = next;

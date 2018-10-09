@@ -5,13 +5,13 @@ using FundamentalsTests.LinkedLists.Helpers;
 
 namespace FundamentalsTests.LinkedLists.Stacks.Helpers
 {
-  internal class Stack<T>
+  public sealed class Stack<T>
   {
     private Node<T> top;
 
-    internal int Count { get; private set; }
+    public int Count { get; private set; }
 
-    internal Stack(IEnumerable<T> collection = null)
+    public Stack(IEnumerable<T> collection = null)
     {
       Clear();
 
@@ -24,13 +24,13 @@ namespace FundamentalsTests.LinkedLists.Stacks.Helpers
       }
     }
 
-    internal void Clear()
+    public void Clear()
     {
       top = null;
       Count = 0;
     }
 
-    internal T Peek()
+    public T Peek()
     {
       if (top == null)
       {
@@ -40,7 +40,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Helpers
       return top.Value;
     }
 
-    internal T Pop()
+    public T Pop()
     {
       var value = Peek();
       top = top.Next;
@@ -49,13 +49,13 @@ namespace FundamentalsTests.LinkedLists.Stacks.Helpers
       return value;
     }
 
-    internal void Push(T item)
+    public void Push(T item)
     {
       top = new Node<T>(item, top);
       Count++;
     }
 
-    internal bool Contains(T item)
+    public bool Contains(T item)
     {
       var node = top;
 

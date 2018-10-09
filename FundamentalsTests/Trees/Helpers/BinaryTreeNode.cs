@@ -1,53 +1,70 @@
+using System;
+
 namespace FundamentalsTests.Trees.Helpers
 {
-  internal class BinaryTreeNode<T> : Node<T>
+  public sealed class BinaryTreeNode<T> : Node<T>
   {
-    internal BinaryTreeNode() : base() {}
-    internal BinaryTreeNode(T value, BinaryTreeNode<T> left = null, BinaryTreeNode<T> right = null)
+    public BinaryTreeNode(T value, BinaryTreeNode<T> left = null, BinaryTreeNode<T> right = null)
     {
       base.Value = value;
 
       if ((left != null) || (right != null))
       {
-        var children = new NodeList<T>(2);
-        children[0] = left;
-        children[1] = right;
-
-        base.LinkedNodes = children;
+        base.LinkedNodes.Add(left);
+        base.LinkedNodes.Add(right);
       }
     }
 
-    internal BinaryTreeNode<T> Left
+    public BinaryTreeNode<T> Left
     {
       get
       {
-        return base.LinkedNodes == null ? null : (BinaryTreeNode<T>)base.LinkedNodes[0];
+        return base.LinkedNodes.Count < 1 ? null : (BinaryTreeNode<T>)base.LinkedNodes[0];
       }
       set
       {
         if (base.LinkedNodes == null)
         {
-          base.LinkedNodes = new NodeList<T>(2);
+          throw new InvalidOperationException("LinkedNodes is not initialized");
         }
 
-        base.LinkedNodes[0] = value;
+        if (base.LinkedNodes.Count < 1)
+        {
+          base.LinkedNodes.Add(value);
+        }
+        else
+        {
+          base.LinkedNodes[0] = value;
+        }
       }
     }
 
-    internal BinaryTreeNode<T> Right
+    public BinaryTreeNode<T> Right
     {
       get
       {
-        return base.LinkedNodes == null ? null : (BinaryTreeNode<T>)base.LinkedNodes[1];
+        return base.LinkedNodes.Count < 2 ? null : (BinaryTreeNode<T>)base.LinkedNodes[1];
       }
       set
       {
         if (base.LinkedNodes == null)
         {
-          base.LinkedNodes = new NodeList<T>(2);
+          throw new InvalidOperationException("LinkedNodes is not initialized");
         }
 
-        base.LinkedNodes[1] = value;
+        if (base.LinkedNodes.Count < 2)
+        {
+          if (base.LinkedNodes.Count < 1)
+          {
+            base.LinkedNodes.Add(null);
+          }
+
+          base.LinkedNodes.Add(value);
+        }
+        else
+        {
+          base.LinkedNodes[1] = value;
+        }
       }
     }
   }

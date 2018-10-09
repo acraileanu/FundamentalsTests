@@ -9,12 +9,12 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     const int value = 123;
     private static readonly int[] values = { 11, 32, 53, 74, 95 };
 
-    private static Stack<int> getPrepopulatedStack()
+    private static Stack<int> GetPrepopulatedStack()
     {
       return new Stack<int>(values);
     }
 
-    private static Stack<int> getEmptyStack()
+    private static Stack<int> GetEmptyStack()
     {
       return new Stack<int>();
     }
@@ -22,7 +22,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void EmptyStackHasNoElements()
     {
-      var stack = getEmptyStack();
+      var stack = GetEmptyStack();
 
       Assert.AreEqual(0, stack.Count);
     }
@@ -30,7 +30,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void ClearingStackRemovesAllElements()
     {
-      var stack = getPrepopulatedStack();
+      var stack = GetPrepopulatedStack();
       Assert.AreNotEqual(0, stack.Count);
 
       stack.Clear();
@@ -41,7 +41,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void PoppingFromEmptyStackRaisesException()
     {
-      var stack = getEmptyStack();
+      var stack = GetEmptyStack();
 
       Assert.Throws<EmptyStackException>(() => stack.Pop());
     }
@@ -49,7 +49,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void PeekingIntoEmptyStackRaisesException()
     {
-      var stack = getEmptyStack();
+      var stack = GetEmptyStack();
 
       Assert.Throws<EmptyStackException>(() => stack.Peek());
     }
@@ -57,7 +57,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void PushingToStackIncreasesSize()
     {
-      var stack = getPrepopulatedStack();
+      var stack = GetPrepopulatedStack();
       var count = stack.Count;
 
       stack.Push(value);
@@ -68,7 +68,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void PoppingFromStackDecreasesSize()
     {
-      var stack = getPrepopulatedStack();
+      var stack = GetPrepopulatedStack();
       var count = stack.Count;
 
       stack.Pop();
@@ -79,7 +79,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void PoppingFromStackReturnsPeekedElement()
     {
-      var stack = getPrepopulatedStack();
+      var stack = GetPrepopulatedStack();
       var peek = stack.Peek();
       var popped = stack.Pop();
 
@@ -90,7 +90,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void PoppingFromStackReturnsPushedValuesInReverseOrder()
     {
-      var stack = getEmptyStack();
+      var stack = GetEmptyStack();
       for (var pushIndex = 0; pushIndex < values.Length; pushIndex++)
       {
         stack.Push(values[pushIndex]);
@@ -106,7 +106,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void PushedElementIsFoundInStack()
     {
-      var stack = getEmptyStack();
+      var stack = GetEmptyStack();
       stack.Push(value);
 
       Assert.IsTrue(stack.Contains(value));
@@ -115,13 +115,13 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     [Test]
     public void NonPushedElementIsMissingFromStack()
     {
-      var stack = getEmptyStack();
+      var stack = GetEmptyStack();
       stack.Push(value);
 
       Assert.IsFalse(stack.Contains(value + 1));
     }
 
-    private static void confirmEmptyState(Stack<int> stack)
+    private static void ConfirmEmptyState(Stack<int> stack)
     {
       Assert.AreEqual(stack.Count, 0);
       Assert.IsFalse(stack.Contains(values[0]));
@@ -130,7 +130,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
       Assert.Throws<EmptyStackException>(() => stack.Pop());
     }
 
-    private static void confirmLastElement(Stack<int> stack, int index)
+    private static void ConfirmLastElement(Stack<int> stack, int index)
     {
       var element = values[index];
 
@@ -144,22 +144,22 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
     public void SequenceOfOperationsProducesExpectedOutput()
     {
       // initial setup
-      var stack = getEmptyStack();
-      confirmEmptyState(stack);
+      var stack = GetEmptyStack();
+      ConfirmEmptyState(stack);
 
       // pushing elements
       for (var index = 0; index < values.Length; index++)
       {
         stack.Push(values[index]);
 
-        confirmLastElement(stack, index);
+        ConfirmLastElement(stack, index);
       }
 
       // popping elements
       var popIndex = values.Length;
       while (--popIndex >= 0)
       {
-        confirmLastElement(stack, popIndex);
+        ConfirmLastElement(stack, popIndex);
 
         var popped = stack.Pop();
 
@@ -168,7 +168,7 @@ namespace FundamentalsTests.LinkedLists.Stacks.Tests
       }
 
       // final setup
-      confirmEmptyState(stack);
+      ConfirmEmptyState(stack);
     }
   }
 }

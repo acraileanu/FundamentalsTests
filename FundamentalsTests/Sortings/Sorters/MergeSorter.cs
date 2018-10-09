@@ -15,10 +15,10 @@ namespace FundamentalsTests.Sortings.Sorters
         throw new ArgumentNullException(nameof(input));
       }
 
-      return mergeSort(input);
+      return MergeSort(input);
     }
 
-    private static List<T> mergeSort(List<T> input)
+    private static List<T> MergeSort(List<T> input)
     {
       var size = input.Count;
 
@@ -27,15 +27,15 @@ namespace FundamentalsTests.Sortings.Sorters
       }
 
       var middle = size / 2;
-      var leftArray = mergeSort(input.Take(middle).ToList<T>());
-      var rightArray = mergeSort(input.Skip(middle).ToList<T>());
+      var leftArray = MergeSort(input.Take(middle).ToList<T>());
+      var rightArray = MergeSort(input.Skip(middle).ToList<T>());
 
-      merge(leftArray, rightArray, input);
+      Merge(leftArray, rightArray, input);
 
       return input;
     }
 
-    private static void merge(List<T> left, List<T> right, List<T> input)
+    private static void Merge(List<T> left, List<T> right, List<T> input)
     {
       var index = 0;
 

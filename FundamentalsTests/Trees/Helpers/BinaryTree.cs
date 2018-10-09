@@ -3,75 +3,75 @@ using System.Collections.Generic;
 
 namespace FundamentalsTests.Trees.Helpers
 {
-  internal class BinaryTree<T>
+  public class BinaryTree<T>
   {
     public BinaryTreeNode<T> Root { get; set; }
 
-    internal BinaryTree()
+    public BinaryTree()
     {
       Root = null;
     }
 
-    internal virtual void Clear()
+    public virtual void Clear()
     {
       Root = null;
     }
 
-    internal void PreOrderTraversal(Action<T> action)
+    public void PreOrderTraversal(Action<T> action)
     {
-      preOrderTraversal(Root, action);
+      TraversePreOrder(Root, action);
     }
 
-    internal void PostOrderTraversal(Action<T> action)
+    public void PostOrderTraversal(Action<T> action)
     {
-      postOrderTraversal(Root, action);
+      TraversePostOrder(Root, action);
     }
 
-    internal void InOrderTraversal(Action<T> action)
+    public void InOrderTraversal(Action<T> action)
     {
-      inOrderTraversal(Root, action);
+      TraverseInOrder(Root, action);
     }
 
-    internal void BreadthFirstTraversal(Action<T> action)
+    public void BreadthFirstTraversal(Action<T> action)
     {
-      breadthFirstTraversal(action);
+      TraverseBreadthFirst(action);
     }
 
-    private void preOrderTraversal(BinaryTreeNode<T> current, Action<T> action)
+    private void TraversePreOrder(BinaryTreeNode<T> current, Action<T> action)
     {
       if (current != null)
       {
         action(current.Value);
 
-        preOrderTraversal(current.Left, action);
-        preOrderTraversal(current.Right, action);
+        TraversePreOrder(current.Left, action);
+        TraversePreOrder(current.Right, action);
       }
     }
 
-    private void postOrderTraversal(BinaryTreeNode<T> current, Action<T> action)
+    private void TraversePostOrder(BinaryTreeNode<T> current, Action<T> action)
     {
       if (current != null)
       {
-        postOrderTraversal(current.Left, action);
-        postOrderTraversal(current.Right, action);
+        TraversePostOrder(current.Left, action);
+        TraversePostOrder(current.Right, action);
 
         action(current.Value);
       }
     }
 
-    private void inOrderTraversal(BinaryTreeNode<T> current, Action<T> action)
+    private void TraverseInOrder(BinaryTreeNode<T> current, Action<T> action)
     {
       if (current != null)
       {
-        inOrderTraversal(current.Left, action);
+        TraverseInOrder(current.Left, action);
 
         action(current.Value);
 
-        inOrderTraversal(current.Right, action);
+        TraverseInOrder(current.Right, action);
       }
     }
 
-    private void breadthFirstTraversal(Action<T> action)
+    private void TraverseBreadthFirst(Action<T> action)
     {
       if (Root == null)
       {
