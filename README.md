@@ -87,6 +87,7 @@ Implemented algorithms:
 - Selection sort
 - Bubble sort
 - Insertion sort
+- Merge Sort
 
 ## Contributing
 
@@ -100,7 +101,6 @@ All files are released with the [GNU GENERAL PUBLIC LICENSE](LICENSE).
 
 ## TODO:
 - more sorts
-  - merge sort
   - quick sort
   - heap sort
   - counting sort
